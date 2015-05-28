@@ -1,3 +1,4 @@
+
 # Homepage (Root path)
 set sessions: true
 
@@ -8,7 +9,11 @@ get '/register' do
 end
 
 post '/register' do
-  @user = User.new params[0..-2]
+  @user = User.new(
+    username: params[:username],
+    email: params[:email],
+    password: params[:password]
+    )
   @user.errors.add[:password, "fields must match!"] if params[:password] != params[:password_confirm]
   if @user.save
     redirect '/register'

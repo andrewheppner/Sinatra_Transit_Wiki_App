@@ -1,20 +1,19 @@
 <div class="row container">
   <form class="col s12 m8 offset-m2" method="post" action='/register'>
+    <!-- TODO: Make smaller? Or maybe make it a modal -->
     <div class="row">
       <% if @user.errors.any? %>
-        <p><strong>Some issues with your registration, please fix them:</strong></p>
-        <ul>
+        <h5 class="flow-text"><strong>Some issues with your registration, please fix them:</strong></h5>
+        <ol>
           <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="flow-text"><%= message %></li>
           <% end %>
-        </ul>
+        </ol>
       <% end %>
     </div>
     <div class="row">
-      <div class="section">
-        <h1 class="center-align">Register</h1>
-        <p class="flow-text">Register to create and edit pages and few other users' profiles!</p>
-      </div>
+      <h1 class="center-align">Register</h1>
+      <p class="flow-text">Register to create and edit pages and few other users' profiles!</p>
       <div class="input-field">
         <label for="username">User Name</label>
         <input id="username" name="username" type="text" class="validate" value="<%= @user.username %>">
@@ -22,14 +21,14 @@
     </div>
     <div class="row">
       <div class="input-field">
-        <input id="email" type="email" class="validate" value="<%= @user.email %>">
         <label for="email">Email</label>
+        <input id="email" type="email" class="validate" name="email" value="<%= @user.email %>">
       </div>
     </div>
     <div class="row">
       <div class="input-field">
-        <input id="password" name="password" type="password" class="validate">
         <label for="password">Password</label>
+        <input id="password" name="password" type="password" class="validate">
       </div>
     </div>
     <div class="row">
