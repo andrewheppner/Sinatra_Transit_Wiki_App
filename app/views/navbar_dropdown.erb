@@ -1,61 +1,41 @@
+<% if current_user %>
 
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper nav-wrapper-container">
-      <a href="#!" class="brand-logo">T m H t B</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      <ul class="right hide-on-med-and-down">
-        <%= erb :navbar_form %>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <%= erb :navbar_form %>
-      </ul>
-    </div>
-  </nav>
-</div>
-
-<!-- <div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper nav-wrapper-container">
-      <a href="#!" class="brand-logo">T m H t B</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      <ul class="right hide-on-med-and-down">
-        <%= erb :navbar_form_logged_in %>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <%= erb :navbar_form_logged_in %>
-      </ul>
-    </div>
-  </nav>
-</div> -->
-
-
-
-
-
-<!-- <ul class="right">
-  <i class="mdi-navigation-menu dropdown-button btn" data-activates='dropdown1'></i>
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Profile</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Logout</a></li>
-  </ul>
-</ul>
-
-<!- - <div class="row" id='dropdown1' class='dropdown-content'>
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field">
-          <label for="email">Email</label>
-          <input id="email" type="email" class="validate" name="email">
-        </div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper nav-wrapper-container">
+        <a href="#!" class="brand-logo">T m H t B</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <%= erb :navbar_form_logged_in %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <%= erb :navbar_form_logged_in %>
+        </ul>
       </div>
-      <div class="row">
-        <div class="input-field">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" class="validate">
-        </div>
-      </div>
-    </form>
+    </nav>
   </div>
-</ul> -->
+
+<% else %>
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper nav-wrapper-container">
+        <a href="#!" class="brand-logo">T m H t B</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <%= erb :navbar_form %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <%= erb :navbar_form %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+<% end %>
+
+
+
+
+
+
