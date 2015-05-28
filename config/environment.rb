@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'bcrypt'
+require 'uri'
 
 require 'active_support/all'
 

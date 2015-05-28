@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   private
 
   def hash_new_password
-    self.hashed_password = BCrypt::Password.create(@password)
+    self.hashed_password = BCrypt::Password.create(password)
   end
 
   def password_changed?
