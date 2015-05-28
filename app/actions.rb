@@ -4,6 +4,7 @@ set sessions: true
 
 get '/' do 
   erb :index
+end
 
 get '/register' do
   @user = User.new
