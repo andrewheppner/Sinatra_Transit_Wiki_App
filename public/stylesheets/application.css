@@ -10,8 +10,11 @@
 
 .mdi-navigation-menu{
   margin-right: 15px;
+  background-color: transparent;
 }
 
-
-
-
+.nav-wrapper-container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 95%; }
