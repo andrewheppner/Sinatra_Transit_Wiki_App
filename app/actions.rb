@@ -11,12 +11,12 @@ get '/users/new' do
   erb :'/users/new'
 end
 
-post '/user' do
+post '/users' do
   @user = User.new(
     username: params[:username],
     email: params[:email],
-    new_password: params[:password],
-    new_password_confirmation: params[:password_confirmation]
+    password: params[:password],
+    password_confirmation: params[:password_confirmation]
     )
   if @user.save
     redirect '/'
