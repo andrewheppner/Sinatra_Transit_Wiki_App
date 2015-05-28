@@ -1,20 +1,16 @@
-<ul class="right">
-  <i class="mdi-navigation-menu dropdown-button btn" data-activates='dropdown1'></i>
-  <ul id='dropdown1' class='dropdown-content'>
-    <li> 
-      <div class="input-field col s8">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Email</label>
-      </div>
-    </li>
-    <li> 
-      <div class="input-field col s8">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Password</label>
-      </div>
-    </li>
-</ul>
 
+<nav>
+  <div class="nav-wrapper nav-wrapper-container">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <ul class="right hide-on-med-and-down">
+      <%= erb :navbar_form %>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <%= erb :navbar_form %>
+    </ul>
+  </div>
+</nav>
 
 
 
