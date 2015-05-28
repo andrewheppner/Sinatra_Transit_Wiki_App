@@ -12,9 +12,9 @@ post '/register' do
   @user = User.new(
     username: params[:username],
     email: params[:email],
-    password: params[:password]
+    new_password: params[:password],
+    new_password_confirmation: params[:password_confirmation]
     )
-  @user.errors.add[:password, "fields must match!"] if params[:password] != params[:password_confirm]
   if @user.save
     redirect '/register'
   else
