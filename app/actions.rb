@@ -2,6 +2,8 @@
 # Homepage (Root path)
 set sessions: true
 
+get '/' do 
+  erb :index
 
 get '/register' do
   @user = User.new
@@ -20,4 +22,5 @@ post '/register' do
   else
     erb :'/register'
   end
+  
 end

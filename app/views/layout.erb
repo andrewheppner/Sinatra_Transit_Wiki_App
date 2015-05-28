@@ -13,9 +13,36 @@
     </head>
 
     <body>
-      <%= yield %>
+      <!-- Navbar -->
+      <header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">T m H t B</a>
+            <%= erb :navbar_dropdown %>
+          </div>
+        </nav>
+      </div>
+      </header>
+
+      <!-- Yield for main content -->
+    <main>
+    <%= yield %>
+    </main>
+
+      <!-- Footer -->
+    <footer class="page-footer">
+      <div class="container">
+      <div class="footer-copyright">
+        <div class="container center-align">
+        © 2015 Teach Me How To Buggy, Inc.
+        </div>
+      </div>
+    </footer>
+
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="/javascript/jquery.min.js"></script>
       <script type="text/javascript" src="/javascript/materialize.min.js"></script>
+      <script type="text/javascript" src="/javascript/application.js"></script>
     </body>
   </html>
