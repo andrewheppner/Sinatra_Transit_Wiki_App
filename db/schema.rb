@@ -11,22 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528165148) do
+ActiveRecord::Schema.define(version: 20150528160823) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pics", force: :cascade do |t|
     t.integer  "cities_id"
     t.integer  "users_id"
     t.string   "path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "revisions", force: :cascade do |t|
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20150528165148) do
     t.string   "fare"
     t.string   "transfers"
     t.integer  "cities_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150528165148) do
     t.string   "username"
     t.string   "password"
     t.boolean  "admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
