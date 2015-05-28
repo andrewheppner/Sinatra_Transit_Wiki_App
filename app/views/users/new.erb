@@ -1,16 +1,17 @@
 <div class="row container">
-  <form class="col s12 m8 offset-m2" method="post" action='/register'>
-    <!-- TODO: Make smaller? Or maybe make it a modal -->
-    <div class="row">
-      <% if @user.errors.any? %>
-        <h5 class="flow-text"><strong>Some issues with your registration, please fix them:</strong></h5>
-        <ol>
-          <% @user.errors.full_messages.each do |message| %>
-            <li class="flow-text"><%= message %></li>
-          <% end %>
-        </ol>
-      <% end %>
-    </div>
+  
+  <!-- TODO: Make smaller? Or maybe make it a modal -->
+  <div class="row">
+    <% if @user.errors.any? %>
+      <h5 class="flow-text"><strong>Some issues with your registration, please fix them:</strong></h5>
+      <ol>
+        <% @user.errors.full_messages.each do |message| %>
+          <li class="flow-text"><%= message %></li>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+  <form method="post" action='/users'>
     <div class="row">
       <h1 class="center-align">Register</h1>
       <p class="flow-text">Register to create and edit pages and few other users' profiles!</p>

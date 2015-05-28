@@ -4,13 +4,14 @@ set sessions: true
 
 get '/' do 
   erb :index
-
-get '/register' do
-  @user = User.new
-  erb :'register'
 end
 
-post '/register' do
+get '/users/new' do
+  @user = User.new
+  erb :'/users/new'
+end
+
+post '/user' do
   @user = User.new(
     username: params[:username],
     email: params[:email],
@@ -18,9 +19,9 @@ post '/register' do
     new_password_confirmation: params[:password_confirmation]
     )
   if @user.save
-    redirect '/register'
+    redirect '/'
   else
-    erb :'/register'
+    erb :'/users/new'
   end
-  
+
 end
