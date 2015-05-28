@@ -1,0 +1,28 @@
+<div class="row">
+  <form class="col s6 offset-s3">
+    <div class="row">
+      <div class="input-field">
+        <label for="user_name">User Name</label>
+        <input placeholder="User Name" id="user_name" name="user_name" type="text" class="validate" value="<%= @user.username %>">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="email" type="email" class="validate" value="<%= @user.email %>">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="password" name="password" type="password" class="validate">
+        <label for="password">Password</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="password_confirm" name="password_confirm" type="password" class="validate">
+        <label for="password_confirm">Confirm Password</label>
+      </div>
+    </div>
+  </form>
+</div>
