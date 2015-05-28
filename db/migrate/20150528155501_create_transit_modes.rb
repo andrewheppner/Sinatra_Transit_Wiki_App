@@ -5,6 +5,7 @@ class CreateTransitModes < ActiveRecord::Migration
       t.string :fare
       t.string :transfers
       t.belongs_to :cities
+      t.timestamps null: false
     end
   end
   
