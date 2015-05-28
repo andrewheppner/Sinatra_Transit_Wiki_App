@@ -15,9 +15,9 @@ post '/users' do
   @user = User.new(
     username: params[:username],
     email: params[:email],
-    password: params[:password]
+    password: params[:password],
+    password_confirmation: params[:password_confirmation]
     )
-  @user.errors.add[:password, "fields must match!"] if params[:password] != params[:password_confirm]
   if @user.save
     redirect '/'
   else

@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'bcrypt'
 
 require 'active_support/all'
 
