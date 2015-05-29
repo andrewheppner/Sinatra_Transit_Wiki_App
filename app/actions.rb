@@ -88,6 +88,11 @@ post "/logout" do
   redirect '/'
 end
 
+get '/users/show' do
+  current_user 
+  erb :'users/show'
+end
+
 post '/search' do 
   @cities = City.where(name: params[:city_name])
  
