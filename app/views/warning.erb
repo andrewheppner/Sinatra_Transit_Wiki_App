@@ -1,0 +1,12 @@
+<% if flash %>
+  <div class="alert alert-danger" role="alert">
+    <strong>Oh snap! Something's gone wrong!</strong>
+    <ul>
+      <% flash.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
