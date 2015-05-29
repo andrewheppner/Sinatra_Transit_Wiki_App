@@ -74,7 +74,8 @@ post '/search' do
       erb :'cities/pick_city'
     end
   else
-
+    session[:flash] = ['There is no page created for this city! Do you want to create a new one?']
+    redirect '/cities/new'
   end
 
 end
