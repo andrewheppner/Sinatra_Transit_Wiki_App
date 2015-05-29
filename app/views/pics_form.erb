@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<h2> Enter your Pic </h2>
+
+<form method="post" action="/pic_form">
+  <div>
+    <label>Enter image url</label>
+    <input type="url" name="path" value="<%= @pic && @pic.path %>">
+  </div>
+  <div>
+    <label>Enter image title </label>
+    <input type="text" name="pic_title" value="<%= @pic && @pic.title %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>

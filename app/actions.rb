@@ -14,6 +14,10 @@ get '/' do
   erb :index
 end
 
+get '/pics_form' do 
+  erb :pics_form
+end
+
 get '/users/new' do
   @user = User.new
   erb :'/users/new'
