@@ -18,6 +18,22 @@ get '/pics_form' do
   erb :pics_form
 end
 
+post '/pics_form' do
+  current_user
+  @pic = Pic.new(
+    user_id: params[:user_id],
+    city_id: params[:city_id],
+    path: params[:path],
+    pic_title: params[:pic_title]
+    )
+  if @pic.save
+    redirect '/'
+  else
+    erb :'pics_form'
+  end
+
+end
+
 get '/users/new' do
   @user = User.new
   erb :'/users/new'
