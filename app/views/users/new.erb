@@ -4,20 +4,20 @@
     <h1 class="center-align">Register</h1>
     <p class="flow-text">Register to create and edit pages and few other users' profiles!</p>
     <div class="input-field">
-      <label for="username">User Name</label>
       <input id="username" name="username" type="text" class="validate" value="<%= @user.username %>">
+      <label for="username">User Name</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field">
-      <label for="email">Email</label>
-      <input id="email" type="email" class="validate" name="email" value="<%= @user.email %>">
+      <input id="reg-email" type="email" class="validate" name="email" value="<%= @user.email %>">
+      <label for="reg-email">Email</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field">
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" class="validate">
+      <input id="reg-password" name="password" type="password" class="validate">
+      <label for="reg-password">Password</label>
     </div>
   </div>
   <div class="row">
