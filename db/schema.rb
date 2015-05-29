@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528193303) do
+ActiveRecord::Schema.define(version: 20150529183632) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150528193303) do
     t.boolean  "admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "hashed_password"
+    t.string   "password_digest"
   end
 
 end
