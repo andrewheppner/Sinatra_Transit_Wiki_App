@@ -44,3 +44,9 @@ post "/login" do
     # erb URI(request.referer).path.to_sym
   end
 end 
+
+post "/logout" do 
+  current_user = nil
+  session.clear
+  redirect '/'
+end
