@@ -16,4 +16,8 @@ $(document).ready(function() {
         return false;
     });
 
+  $('.collapsible').collapsible({
+      accordion : false
+    });
+
 });
