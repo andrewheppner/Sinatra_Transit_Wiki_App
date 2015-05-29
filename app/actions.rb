@@ -35,12 +35,12 @@ post '/users' do
 end
 
 post "/login" do
-  user = User.authenticate(params[:email], params[:password])
-  if user
+  @user = User.authenticate(params[:email], params[:password])
+  if @user
     session[:user_id] = user.id 
     redirect '/'
   else
-    redirect '/users/new'
-    # erb URI(request.referer).path.to_sym
+    byebug
+    erb ((path = URI(request.referer).path).last != '/' ? path : path + 'index').to_sym
   end
 end 
