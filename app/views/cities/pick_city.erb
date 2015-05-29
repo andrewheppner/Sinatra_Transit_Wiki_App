@@ -1,8 +1,8 @@
 <h1> Pick a city </h1>
-<div>
-  <% @cities.each do |city| %>
-  <div>
-    <p><%= city.name %></p>
+<% @cities.each do |city| %>
+<div class="row">
+  <div class="col s12 m6">
+    <a href="/cities/<%= city.id %>"><%= city.name %></a>
   </div>
 </div>
 <% end %>
