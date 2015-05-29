@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'bcrypt'
+require 'uri'
 
 require 'active_support/all'
 
@@ -19,7 +21,8 @@ configure do
   set :server, :puma
 
   enable :sessions
-  set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
+  set :session_secret, ENV['SECRET_KEY'] || 'asfdhgjdhtrgdfgdhgfhfgv'
+  set :domain_name, ENV['DOMAIN_NAME'] || 'http://localhost:3000'
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
 end

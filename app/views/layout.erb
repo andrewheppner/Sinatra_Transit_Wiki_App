@@ -14,13 +14,19 @@
 
     <body>
       <!-- Navbar -->
-      <header> 
+
+      <header>
         <%= erb :navbar_dropdown %>
       </header>
 
       <!-- Yield for main content -->
     <main>
-    <%= yield %>
+      <div class="row container">
+        <div class="col s12 m10 offset-m1">
+          <%= erb :warning, locals: {flash: @flash} %>
+          <%= yield %>
+        </div>
+      </div>
     </main>
 
       <!-- Footer -->

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<% if @pic && @pic.errors.any? %>
+  <div>
+    <strong>Some issues with your image details, please fix them:</strong>
+    <ul>
+      <% @pic.errors.full_messages.each do |pic| %>
+        <li><%= pic %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2> Enter your Pic </h2>
+
+<form method="post" action="/pics/new">
+  <div class="input-field">
+    <label>Enter image url</label>
+    <input type="url" name="path" value="<%= @pic && @pic.path %>">
+  </div>
+  <div class="input-field">
+    <label>Enter image title </label>
+    <input type="text" name="pic_title" value="<%= @pic && @pic.pic_title %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>

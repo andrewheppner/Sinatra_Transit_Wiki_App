@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528160823) do
+ActiveRecord::Schema.define(version: 20150529183632) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -22,27 +22,28 @@ ActiveRecord::Schema.define(version: 20150528160823) do
   end
 
   create_table "pics", force: :cascade do |t|
-    t.integer  "cities_id"
-    t.integer  "users_id"
+    t.integer  "city_id"
+    t.integer  "user_id"
     t.string   "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "pic_title"
   end
 
   create_table "revisions", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "transit_modes_id"
+    t.integer  "user_id"
+    t.integer  "transit_mode_id"
     t.string   "column_name"
     t.datetime "before_edit"
     t.datetime "after_edit"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "transit_modes", force: :cascade do |t|
     t.string   "fare"
     t.string   "transfers"
-    t.integer  "cities_id"
+    t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,10 +51,10 @@ ActiveRecord::Schema.define(version: 20150528160823) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "username"
-    t.string   "password"
     t.boolean  "admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end
