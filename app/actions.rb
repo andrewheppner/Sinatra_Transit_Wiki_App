@@ -40,7 +40,7 @@ post "/login" do
     session[:user_id] = user.id 
     redirect '/'
   else
-    byebug
+    @user = User.new
     erb ((path = URI(request.referer).path).last != '/' ? path : path + 'index').to_sym
   end
 end 
