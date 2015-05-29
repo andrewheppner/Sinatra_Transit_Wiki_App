@@ -12,6 +12,10 @@ helpers do
     request.referer.starts_with?(settings.domain_name) ? URI(request.referer).path : '/'
   end
 
+  def sign_in
+    session[:user_id] = @user.id 
+  end
+
 end
 
 before do
@@ -36,6 +40,7 @@ post '/users' do
     password_confirmation: params[:password_confirmation]
     )
   if @user.save
+    sign_in
     redirect '/'
   else
     session[:flash] = @user.errors.full_messages
@@ -44,9 +49,9 @@ post '/users' do
 end
 
 post "/login" do
-  @user = User.authenticate(params[:email], params[:password])
-  if @user
-    session[:user_id] = @user.id 
+  @user = User.find_by(email: params[:email])
+  if @user && @user.authenticate(params[:password])
+    sign_in
   else
     session[:flash] = ['The username or password is incorrect! Sign in unsuccessful!']
   end
