@@ -58,3 +58,28 @@ post "/logout" do
   session.clear
   redirect '/'
 end
+
+post '/search' do 
+  @cities = City.where(name: params[:city_name])
+ 
+  if @cities.first
+    if @cities.length == 1
+      redirect "/cities/#{@cities[0].id}"
+    else
+      erb :'cities/pick_city'
+    end
+  else
+
+  end
+
+end
+
+get '/cities/:id' do 
+  @city = City.find(params[:id])
+  erb :'cities/show'
+end
+
+
+
+
+
