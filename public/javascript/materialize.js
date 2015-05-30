@@ -3177,7 +3177,7 @@ $(document).ready(function(){
       var time = 0;
       $this.find('ul .btn-floating').each(function () {
         $(this).velocity(
-          { opacity: "1", scaleX: "1", scaleY: "1", translateY: "0"},
+          { opacity: "1", scaleX: "1.5", scaleY: "1.5", translateY: "0"},
           { duration: 80, delay: time });
         time += 40;
       });

@@ -45,11 +45,20 @@
   float: right;
 }
 
+.fixed-action-btn {
+  position: relative;
+  display: inline-block;
+}
+
 .fixed-action-btn ul {
   text-align: center;
   position: absolute;
   bottom: auto;
-  top: 75px;
+  top: 85px;
+}
+
+.fixed-action-btn ul li {
+  margin-bottom: 30px;
 }
 
 .t-caption {
