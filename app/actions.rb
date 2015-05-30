@@ -113,7 +113,8 @@ get '/transit_modes/new' do
   erb :'transit_modes/new'
 end
 
-
-
+get '/users/problem' do 
+  erb :'/users/problem'
+end
 
 

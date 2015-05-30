@@ -33,3 +33,12 @@
     </div>
   </li>
 </ul>
+
+<% if current_user %>
+  <form action='/users/problem'>
+    <div class='right-align'>
+      </br>
+      <button class="btn waves-effect waves-light" type="submit">Report Problems</button>
+    </div>
+  </form> 
+<% end %>
