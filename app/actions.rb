@@ -109,6 +109,10 @@ get '/cities/:id' do
   erb :'cities/show'
 end
 
+get '/transit_modes/new' do 
+  erb :'transit_modes/new'
+end
+
 
 
 
