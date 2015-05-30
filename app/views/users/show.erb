@@ -1,14 +1,16 @@
-<h1> Profile Page </h1>
-<h3> My Username: <%= current_user.username %>
+<h2> Profile Page </h2>
+<h4> My Username: <%= current_user.username %></h4>
 <% if current_user.pic_url == nil%>
 
   <form method="post" action="/users/show">
-    <div class="input-field">
-      <label>Enter the url for your picture ^.^ </label>
-      <input type="url" name="pic_url">
+    <div class="row">
+      <div class="input-field">
+        <label>Enter the url for your picture ^.^ </label>
+        <input type="url" name="pic_url">
+      </div>
     </div>
-    <div>
-      <input type="submit" value="Submit">
+    <div class="row center-align">
+       <button class="btn waves-effect waves-light" type="submit">Submit</button>
     </div>
   </form>
 
@@ -18,7 +20,7 @@
   </div>
 
 <% end %>
-<h3>My Email: <%= current_user.email %></h3>
+<h4>My Email: <%= current_user.email %></h4>
 
 </br>
 <h5>My Stats</h5> </br>
