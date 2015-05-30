@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529212921) do
+ActiveRecord::Schema.define(version: 20150530205249) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20150529212921) do
   create_table "revisions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "transit_mode_id"
-    t.string   "column_name"
     t.datetime "before_edit"
     t.datetime "after_edit"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "problem"
   end
 
   create_table "transit_modes", force: :cascade do |t|
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150529212921) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "pic_url"
   end
 
 end
