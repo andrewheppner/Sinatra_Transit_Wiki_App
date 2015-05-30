@@ -1,6 +1,25 @@
 <h1> Profile Page </h1>
+<% if current_user.pic_url == nil%>
+
+  <form method="post" action="/users/show">
+    <div class="input-field">
+      <label>Enter the url for your picture ^.^ </label>
+      <input type="url" name="pic_url">
+    </div>
+    <div>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+
+<% else %>
+
+  <div class="col-md-4">
+    <img src= <%= current_user.pic_url %> alt="Profile Pic"> 
+  </div>
+
+<% end %>
 
 
-<h5>My Stats</h5>
-
+</br>
+<h5>My Stats</h5> </br>
 <h5>My Most Recent Updates</h5>

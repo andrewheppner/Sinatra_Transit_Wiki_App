@@ -89,8 +89,16 @@ post "/logout" do
 end
 
 get '/users/show' do
-  current_user 
   erb :'users/show'
+end
+
+post '/users/show' do 
+  current_user.pic_url = params[:pic_url]
+  if current_user.save
+    redirect '/users/show' 
+  else
+    erb :'/users/show'
+  end
 end
 
 post '/search' do 
