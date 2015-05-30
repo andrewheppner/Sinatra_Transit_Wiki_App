@@ -1,13 +1,35 @@
 
 <!-- Create a new city! -->
-<h2 class="flex-text">Add your city!</h2>
+<h4 class="center-align">Add your city!</h4>
 
- <div class="row">
-  <div class="input-field col s4">
-    <input id="city-name" name='city-name' type="password" class="validate">
-    <label for="city-name">What is the name of your city?</label>
+<form method='post' action='/cities'>
+   <div class="row" style="margin: 0">
+    <div class="input-field col s6">
+      <input id="city-name" name='city-name' type="text" class="validate">
+      <label for="city-name">City Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="country" name='country' type="text" class="validate">
+      <label for="country">Country</label>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="input-field col s10 offset">
+      <input id="state" name='state' type="text">
+      <label for="state">State/Province (Optional)</label>
+    </div>
+  </div>
+  <div class="row">
+    <form method='post' action='/transit_modes'>
+      <div class='input-field'>
+        <input id="transit_mode" name='transit_mode' type="text">
+        <label for="transit_mode">Add a mode of mass transit</label>
+      </div>
+      <div class='right'>
+        <%= erb :'/transit_modes/new' %>
+      </div>
+    </form>
+  </div>
+</form>
 
-<%= erb :'/transit_modes/new' %>
 
