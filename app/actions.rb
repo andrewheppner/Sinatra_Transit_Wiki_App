@@ -75,18 +75,21 @@ post '/search' do
     end
   else
     session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    session[:city_name] = params[:city_name]
     redirect '/cities/new'
   end
 
 end
 
+get '/cities/new' do
+  @failed_city_name = session[:city_name] if session[:city_name]
+  session[:city_name] = nil
+  erb :'/cities/new'
+end
+
 get '/cities/:id' do 
   @city = City.find(params[:id])
   erb :'cities/show'
-end
-
-get '/cities/new' do
-  erb :'cities/new'
 end
 
 post '/cities' do
