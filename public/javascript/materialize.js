@@ -3171,11 +3171,11 @@ $(document).ready(function(){
       var $this = $(this);
 
       $this.find('ul .btn-floating').velocity(
-        { scaleY: ".4", scaleX: ".4", translateY: "40px"},
+        { scaleY: ".4", scaleX: ".4", translateY: "-40px"},
         { duration: 0 });
 
       var time = 0;
-      $this.find('ul .btn-floating').reverse().each(function () {
+      $this.find('ul .btn-floating').each(function () {
         $(this).velocity(
           { opacity: "1", scaleX: "1", scaleY: "1", translateY: "0"},
           { duration: 80, delay: time });

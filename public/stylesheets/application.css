@@ -33,3 +33,32 @@
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+
+#search {
+    display: none;
+    margin-bottom: 0px;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+#search-nav {
+  float: right;
+}
+
+.fixed-action-btn ul {
+  text-align: center;
+  position: absolute;
+  bottom: auto;
+  top: 75px;
+}
+
+.t-caption {
+  position: absolute;
+  left: 55px;
+  top: 3px;
+  color: black;
+}
+.btn-floating {
+  overflow:visible;
+}
+

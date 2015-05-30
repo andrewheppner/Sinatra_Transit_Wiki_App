@@ -2,15 +2,23 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-  // $('.dropdown-button').dropdown({
-  //     inDuration: 300,
-  //     outDuration: 225,
-  //     constrain_width: false, // Does not change width of dropdown to that of the activator
-  //     hover: false, // Activate on hover
-  //     gutter: 0, // Spacing from edge
-  //     belowOrigin: true // Displays dropdown below the button
-  //   });
-
   $(".button-collapse").sideNav({belowOrigin: true});
 
+  $('a#toggle-search').click(function()
+    {
+        var search = $('div#search');
+
+        search.is(":visible") ? search.slideUp() : search.slideDown(function()
+        {
+            search.find('input').focus();
+        });
+
+        return false;
+    });
+
+  $('.collapsible').collapsible({
+      accordion : false
+    });
+
 });
+
