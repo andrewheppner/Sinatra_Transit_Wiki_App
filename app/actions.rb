@@ -74,7 +74,8 @@ post '/search' do
       erb :'cities/pick_city'
     end
   else
-
+    session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    redirect '/cities/new'
   end
 
 end
@@ -84,6 +85,18 @@ get '/cities/:id' do
   erb :'cities/show'
 end
 
+get '/cities/new' do
+  erb :'cities/new'
+end
+
+post '/cities' do
+  @city.new(
+    name: params[:name],
+    state: params[:state],
+    country: params[:country]
+  )
+
+end
 
 
 
