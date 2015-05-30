@@ -53,7 +53,8 @@ get '/cities/:city_id/pics/:id' do
 end
 
 get '/users/new' do
- erb :'users/new'
+  redirect '/' if current_user
+  erb :'users/new'
 end
 
 post '/users' do
@@ -105,8 +106,10 @@ post '/search' do
 
 end
 get '/cities/new' do
-  @failed_city_name = session[:city_name] if session[:city_name]
-  session[:city_name] = nil
+  if session[:city_name]
+    @failed_city_name = session[:city_name]
+    session[:city_name] = nil
+  end
   erb :'/cities/new'
 end
 
