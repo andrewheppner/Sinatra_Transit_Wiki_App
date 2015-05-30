@@ -104,7 +104,6 @@ post '/search' do
   end
 
 end
-
 get '/cities/new' do
   @failed_city_name = session[:city_name] if session[:city_name]
   session[:city_name] = nil
@@ -117,11 +116,17 @@ get '/cities/:id' do
 end
 
 post '/cities' do
-  @city.new(
+  @city = City.new(
     name: params[:name],
-    state: params[:state],
     country: params[:country]
   )
+  @city.state = params[:state] unless params[:state].chomp.empty?
+  if @city.save
+    redirect "/cities/#{@city.id}"
+  else
+    session[:flash] = @city.errors.full_messages
+    redirect '/cities/new'
+  end
 
 end
 
