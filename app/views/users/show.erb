@@ -1,5 +1,5 @@
 <h2> Profile Page </h2>
-<h4> My Username: <%= current_user.username %></h4>
+
 <% if current_user.pic_url == nil%>
 
   <form method="post" action="/users/show">
@@ -20,8 +20,16 @@
   </div>
 
 <% end %>
+
+<h4> My Username: <%= current_user.username %></h4>
+</br>
 <h4>My Email: <%= current_user.email %></h4>
 
-</br>
-<h5>My Stats</h5> </br>
-<h5>My Most Recent Updates</h5>
+<% if current_user %>
+  <form method="get" action="/users/edit">
+    <div class='left-align'>
+      </br></br>
+      <button class="btn waves-effect waves-light" type="submit">Change My Info</button>
+    </div>
+  </form> 
+<% end %>
