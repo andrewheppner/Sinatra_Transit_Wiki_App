@@ -5,12 +5,17 @@ helpers do
      @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def authenticate
+  def last_page_url
     request.referer.starts_with?(settings.domain_name) ? URI(request.referer).path : '/'
   end
 
-  def sign_in
-    session[:user_id] = @user.id 
+  def sign_in(user)
+    session[:user_id] = user.id 
+  end
+
+  def sign_out
+    session.clear
+    current_user = nil
   end
 
 end
@@ -27,15 +32,14 @@ get '/' do
   erb :index
 end
 
-get '/pics/new' do 
+get '/cities/:city_id/pics/new' do 
+  @city = City.find(params[:city_id])
   erb :'pics/new'
 end
 
-post '/pics/new' do
-  #TODO: test with user logged in
-  current_user
+post '/cities/:city_id/pics' do
   @pic = Pic.new(
-    user_id: params[:user_id],
+    user_id: current_user.id,
     city_id: params[:city_id],
     path: params[:path],
     pic_title: params[:pic_title]
@@ -60,34 +64,33 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.new(
+  user = User.new(
     username: params[:username],
     email: params[:email],
     password: params[:password],
     password_confirmation: params[:password_confirmation]
     )
-  if @user.save
-    sign_in
+  if user.save
+    sign_in(user)
     redirect '/'
   else
-    session[:flash] = @user.errors.full_messages
+    session[:flash] = user.errors.full_messages
     redirect '/users/new'
   end
 end
 
 post "/login" do
-  @user = User.find_by(email: params[:email])
-  if @user && @user.authenticate(params[:password])
-    sign_in
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
+    sign_in(user)
   else
     session[:flash] = ['The username or password is incorrect! Sign in unsuccessful!']
   end
-  redirect authenticate
+  redirect last_page_url
 end 
 
 post "/logout" do 
-  current_user = nil
-  session.clear
+  sign_out
   redirect '/'
 end
 
@@ -107,12 +110,10 @@ end
 post '/search' do 
   @cities = City.where(name: params[:city_name])
  
-  if @cities.first
-    if @cities.length == 1
-      redirect "/cities/#{@cities[0].id}"
-    else
-      erb :'cities/pick_city'
-    end
+  if @cities.length > 1
+    erb :'cities/pick_city'
+  elsif @cities.length > 0
+    redirect "/cities/#{@cities[0].id}"
   else
     if current_user
       session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
