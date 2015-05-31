@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s6 grid-example">
-      <h3 class="flex-text"><%= @city.name %>,</h3>
+      <h3 class="flex-text"><%= @city.name %></h3>
     </div>
     <div class="col s6 grid-example">
       <h3 class="flex-text right" style="color: grey"><%= @city.state + ', ' if @city.state %><%= @city.country %></h3>
@@ -13,6 +13,20 @@
     </div> -->
 </div>
 
+<% if @city.pics %>
+  <% @city.pics.each do |pic| %>
+    <div class="slider hide-on-small-only">  
+      <ul class="slides">
+        <li>
+          <img src="<%= pic.path %>">
+          <div class="caption center-align">
+            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
 
 <ul class="collapsible" data-collapsible="accordion">
   <% if @city.transit_modes %>
@@ -35,3 +49,18 @@
     </div>
   </li>
 </ul>
+
+<% if @city.pics %>
+  <% @city.pics.each do |pic| %>
+    <div class="slider hide-on-med-and-up">  
+      <ul class="slides">
+        <li>
+          <img src="<%= pic.path %>">
+          <div class="caption center-align">
+            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
+          </div>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
