@@ -119,8 +119,9 @@ post '/search' do
 
 end
 get '/cities/new' do
+  failed_city_name = nil
   if session[:city_name]
-    @failed_city_name = session[:city_name]
+    failed_city_name = session[:city_name]
     session[:city_name] = nil
   end
   erb :'/cities/new'
