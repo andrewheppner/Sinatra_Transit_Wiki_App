@@ -5,7 +5,7 @@
 <form method='post' action='/cities'>
    <div class="row" style="margin: 0">
     <div class="input-field col s6">
-      <input id="city-name" name='name' type="text" class="validate" value=<%= failed_city_name %>>
+      <input id="city-name" name='name' type="text" class="validate" value="<%= @failed_city_name %>">
       <label for="city-name">City Name</label>
     </div>
     <div class="input-field col s6">
@@ -24,6 +24,7 @@
       <i class="mdi-content-add right"></i>
     </button>
   </div>
+  <div>
   <!-- <div class="row">
     <form method='post' action='/transit_modes'>
       <div class='input-field'>
