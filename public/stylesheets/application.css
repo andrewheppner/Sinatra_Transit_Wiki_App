@@ -8,7 +8,7 @@
     flex: 1 0 auto;
   }
 
-.mdi-navigation-menu{
+.mdi-navigation-menu {
   margin-right: 15px;
   background-color: transparent;
 }
@@ -85,5 +85,16 @@ footer.page-footer {
 nav .brand-logo {
   color: #26a69a;
   text-shadow: 17px 10px 27px rgba(150, 150, 150, 0.87);
+  margin-top: 11px;
 }
 
+#register_button {
+  position: relative;
+  margin-top: 90px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media only screen and (max-height : 568px) {
+  .tall-screen-only {
+    display: none; } }

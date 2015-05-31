@@ -1,0 +1,14 @@
+<h3 class='left-align'>Add Details to Transit Modes</h3>
+<% if @city.transit_modes.any? %>
+  <% @city.transit_modes.each do |mode| %>
+    <div class="collection">
+      <a href="city/transit_modes/<%= mode.id %>/add_details" class="collection-item"><%= mode.name %></a>
+    </div>
+  <% end %>
+<% end %>
+<form method='get' action='/cities/<%= @city.id %>/pics/new'>
+  <div class='center-align'>
+    </br>
+    <button class="btn waves-effect waves-light" type="submit">Done with Details</button>
+  </div>
+</form> 
