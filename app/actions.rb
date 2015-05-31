@@ -179,12 +179,12 @@ get '/users/edit' do
 end
 
 put '/users' do
-  current_user.pic_url = params [:pic_url]
+  current_user.pic_url = params[:pic_url]
   current_user.username = params[:username]
   current_user.email = params[:email]
+  current_user.password = params[:password]
+  current_user.password_confirmation = params[:password_confirmation]
   current_user.save!
-end
-get '/users' do 
   redirect '/users/show'
 end
 
