@@ -1,14 +1,19 @@
-<h3 class='left-align'>Add Details to Transit Modes</h3>
-<% if @city.transit_modes.any? %>
-  <% @city.transit_modes.each do |mode| %>
-    <div class="collection">
-      <a href="city/transit_modes/<%= mode.id %>/add_details" class="collection-item"><%= mode.name %></a>
+<div class="row">
+  <form method="POST" action="/cities/<%= @city.id %>/transit_modes/<%= @transit_mode.id %>">
+    <div class="input-field col s12">
+      <textarea id="fare info" class="materialize-textarea"></textarea>
+      <label for="textarea1">What types of fares are availible?</label>
     </div>
-  <% end %>
-<% end %>
-<form method='get' action='/cities/<%= @city.id %>/pics/new'>
-  <div class='center-align'>
-    </br>
-    <button class="btn waves-effect waves-light" type="submit">Done with Details</button>
-  </div>
-</form> 
+    <div class="input-field col s12">
+      <textarea id="fare info" class="materialize-textarea"></textarea>
+      <label for="textarea1">What can you obtain these fares? (teller, automated machines, etc)</label>
+    </div>
+    <div class="input-field col s12">
+      <textarea id="fare info" class="materialize-textarea"></textarea>
+      <label for="textarea1">What types of fares are availible?</label>
+    </div>
+    <input id="city-name" name='name' type="text" class="validate" value="<%= @failed_city_name %>">
+    <label for="city-name">The name of the transit mode</label>
+
+  </form>
+</div>
