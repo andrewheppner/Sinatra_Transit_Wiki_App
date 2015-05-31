@@ -64,3 +64,11 @@
     </div>
   <% end %>
 <% end %>
+<% if current_user %>
+  <form method="get" action="/cities/<%= @city.id %>/problems/new">
+    <div class='right-align'>
+      </br>
+      <button class="btn waves-effect waves-light" type="submit">Report Problems</button>
+    </div>
+  </form> 
+<% end %>

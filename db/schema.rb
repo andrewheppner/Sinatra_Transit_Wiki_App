@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150531023846) do
   create_table "revisions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "transit_mode_id"
-    t.string   "column_name"
     t.datetime "before_edit"
     t.datetime "after_edit"
     t.datetime "created_at",      null: false
