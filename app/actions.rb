@@ -161,7 +161,8 @@ post '/cities' do
 
 end
 
-get '/transit_modes/new' do 
+get '/cities/:city_id/transit_modes/new' do 
+  @city = City.find(params[:city_id])
   erb :'transit_modes/new'
 end
 

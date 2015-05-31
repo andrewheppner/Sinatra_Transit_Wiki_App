@@ -1,4 +1,4 @@
-<div class="fixed-action-btn">
+<!-- <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
     <i class="large mdi-content-add-circle"></i>
   </a>
@@ -9,3 +9,47 @@
     <li class="transit-caption-rel"><a class="btn-floating blue "><i class="small mdi-maps-directions-bike"></i><span class='t-caption'>Bicycle</span></a></li>
   </ul>
 </div>
+ -->
+
+<div class="row">
+ <h3>Add the types of transit availible in this city to your page!</h3>
+</div>
+<form method='post' action='/cities/<%= @city.id %>/transit_modes'>
+   <div class="row" style="margin: 0">
+      <div class="btn waves-effect waves-light right" type="submit" name="action">Submit
+        <i class="mdi-content-add right"></i>
+      </div>
+    <div class="input-field">
+      <input id="city-name" name='name' type="text" class="validate" value="<%= @failed_city_name %>">
+      <label for="city-name">The name of the transit mode</label>
+    </div>
+  </div>  
+  
+  <div class="row center-align">
+    <h5>To submit, choose an icon for this transit mode from the selection below:</h5>
+  </div>
+  <input type="hidden" id="icon" name="icon">
+  <div class="row center-align">
+    <div class="col s3">
+      <button class="btn-floating btn-large red" type="submit" name="action" id="subway"><i class="large mdi-maps-directions-subway"></i></button>
+    </div>
+    <div class="col s3">
+      <button class="btn-floating btn-large yellow darken-1" id="bus"><i class="large mdi-maps-directions-bus"></i></button>
+    </div>
+      <button class="btn-floating btn-large green" id="train"><i class="large mdi-maps-directions-train"></i></button>
+    <div class="col s3">
+      <button class="btn-floating btn-large blue" id="bike"><i class="large mdi-maps-directions-bike"></i></button>
+    </div>
+  </div>
+</form>
+<!-- 
+<% if @city.transit_modes %>
+   <ul class="collection">
+    <% @city.transit_modes.each do |mode| %>
+    <li>
+      <%= mode.icon %>
+      <span class="title"><%= mode.name %></span>
+    </li>
+    <% end %>
+  </ul>
+<% end %> -->

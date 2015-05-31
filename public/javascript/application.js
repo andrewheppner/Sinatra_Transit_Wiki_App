@@ -21,7 +21,10 @@ $(document).ready(function() {
     });
 
   $('.slider').slider({full_width: false, interval: 100000});
-    
+
+  $('#subway').click(function(){
+    $('#icon').val('2');
+  });    
 
 });
 
