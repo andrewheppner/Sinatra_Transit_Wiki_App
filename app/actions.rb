@@ -178,4 +178,14 @@ get '/users/edit' do
   erb :'/users/edit'
 end
 
+put '/users' do
+  current_user.pic_url = params [:pic_url]
+  current_user.username = params[:username]
+  current_user.email = params[:email]
+  current_user.save!
+end
+get '/users' do 
+  redirect '/users/show'
+end
+
 

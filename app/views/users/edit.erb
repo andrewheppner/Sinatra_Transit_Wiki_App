@@ -1,20 +1,20 @@
   
-<form method="post" action='/users'>
+<form action="/users" method="PUT">
   <h4 class="center-align"> Edit your personal information here! </h4>
   <div class="col s12 m8 l12">
     <p>My Profile Picture<p>
     <img src= <%= current_user.pic_url %> alt="Profile Pic" height="250" width="250"> 
   </div>
   <div class="input-field col s12 m8 l12">
-    <input value="<%=current_user.pic_url%>" id="current_user.pic_url" type="url" class="validate">
+    <input value="<%=current_user.pic_url%>" id="current_user.pic_url" type="url" name="pic_url" class="validate">
     <label class="active" for="current_user.pic_url">My Profile Pictures' URL</label>
   </div>
   <div class="input-field col s12 m8 l12">
-    <input value="<%=current_user.username%>" id="current_user.username" type="text" class="validate">
+    <input value="<%=current_user.username%>" id="current_user.username" name="username" type="text" class="validate">
     <label class="active" for="current_user.username">My Username</label>
   </div>
   <div class="input-field col s12 m8 l12">
-    <input value="<%=current_user.email%>" id="current_user.email" type="text" class="validate">
+    <input value="<%=current_user.email%>" id="current_user.email" type="text" name="email" class="validate">
     <label class="active" for="current_user.email">My email</label>
   </div>
   <div class="input-field col s12 m8 l12">
