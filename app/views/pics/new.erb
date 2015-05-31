@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-
-<% if @pic && @pic.errors.any? %>
-  <div>
-    <strong>Some issues with your image details, please fix them:</strong>
-    <ul>
-      <% @pic.errors.full_messages.each do |pic| %>
-        <li><%= pic %></li>
-      <% end %>
-    </ul>
+<% if current_user %>
+  <div class ="row">
+    <h3>Add a picture for <%= @city.name %>'s transit system</h3>
   </div>
+
+  <form method="post" action="/cities/<%= @city.id %>/pics">
+    <div class="input-field row">
+      <label for="path">Enter image url</label>
+      <input type="url" id="path" name="path" value="<%= @pic && @pic.path %>">
+    </div>
+    <div class="input-field row">
+      <label for="title">Image Description</label>
+      <input type="text" id="title" name="title" value="<%= @pic && @pic.title %>">
+    </div>
+    <div class="row">
+      <button class="btn" type="submit" value="submit">Submit
+        <i class="mdi-content-add right"></i>
+      </button>
+    </div>
+  </form>
+<% else %>
+  <%= erb :warning, locals: {flash: ["You must be logged in to add pictures!"]} %>
 <% end %>
-
-<h2> Enter your Pic </h2>
-
-<form method="post" action="/pics/new">
-  <div class="input-field">
-    <label>Enter image url</label>
-    <input type="url" name="path" value="<%= @pic && @pic.path %>">
-  </div>
-  <div class="input-field">
-    <label>Enter image title </label>
-    <input type="text" name="pic_title" value="<%= @pic && @pic.pic_title %>">
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-</form>

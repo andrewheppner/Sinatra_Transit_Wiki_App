@@ -24,10 +24,12 @@
       <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2">
           <%= erb :warning, locals: {flash: @flash} %>
+          <%= erb :confirmation, locals: {confirm: @confirm} %>
           <%= yield %>
         </div>
       </div>
     </main>
+
 
       <!-- Footer -->
     <footer class="page-footer tall-screen-only">
@@ -36,6 +38,7 @@
         <div class="container center-align">
         © 2015 Teach Me How To Buggy, Inc.
         </div>
+      </div>
       </div>
     </footer>
 

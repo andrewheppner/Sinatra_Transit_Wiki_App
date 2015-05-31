@@ -1,0 +1,30 @@
+<h2> Problem Reports Page </h2>
+
+<label>What would you like to fix?</label>
+ <div class="input-field col s12">
+    <select class="browser-default">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Transit Types</option>
+      <option value="2">Fares</option>
+      <option value="3">Transfers</option>
+    </select>
+</div>
+
+</br></br> 
+<form method="post" action="/cities/<%= @city.id%>/problems/new">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="mdi-editor-mode-edit prefix"></i>
+      <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+      <label for="icon_prefix2">You can add details about the issue here!</label>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <button class="btn" type="submit" value="submit">Submit
+        <i class="mdi-content-add right"></i>
+      </button>
+    </div>
+  </div>
+</form>
+

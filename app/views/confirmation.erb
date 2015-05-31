@@ -1,0 +1,12 @@
+<% if confirm %>
+  <div class="alert alert-confirm" role="alert">
+    <strong>Success!</strong>
+    <ul>
+      <% confirm.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
