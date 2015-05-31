@@ -90,11 +90,24 @@ nav .brand-logo {
 
 #register_button {
   position: relative;
-  margin-top: 90px;
-  margin-bottom: 10px;
+  margin-top: 85px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
 @media only screen and (max-height : 568px) {
   .tall-screen-only {
     display: none; } }
+
+.input-field.registration {
+  height: 45px;
+}
+
+#reg-submit-button {
+  margin-top: 22px;
+}
+
+footer.page-footer .footer-copyright {
+  color: #000;
+  font-weight: light;
+}
