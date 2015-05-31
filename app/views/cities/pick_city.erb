@@ -2,7 +2,7 @@
 <% @cities.each do |city| %>
 <div class="row">
   <div class="col s12 m6">
-    <a href="/cities/<%= city.id %>"><%= city.name %></a>
+    <a href="/cities/<%= city.id %>"><%= city.name %>, <%= city.state + ', ' if city.state %><%= city.country %></a>
   </div>
 </div>
 <% end %>
