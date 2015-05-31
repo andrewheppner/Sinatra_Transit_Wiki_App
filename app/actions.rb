@@ -112,7 +112,11 @@ post '/search' do
       erb :'cities/pick_city'
     end
   else
-    session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    if current_user
+      session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    else
+      session[:flash] = ["There is no page for this city! Login to be able to create new pages!"]
+    end
     session[:city_name] = params[:city_name]
     redirect '/cities/new'
   end
@@ -123,7 +127,11 @@ get '/cities/new' do
     @failed_city_name = session[:city_name]
     session[:city_name] = nil
   end
-  erb :'/cities/new'
+  if current_user
+    erb :'/cities/new'
+  else
+    erb :index
+  end
 end
 
 get '/cities/:id' do 
