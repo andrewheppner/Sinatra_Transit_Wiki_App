@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 
-<% if @pic && @pic.errors.any? %>
-  <div>
-    <strong>Some issues with your image details, please fix them:</strong>
-    <ul>
-      <% @pic.errors.full_messages.each do |pic| %>
-        <li><%= pic %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <h2> Enter your Pic </h2>
 
 <form method="post" action="/pics/new">
