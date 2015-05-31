@@ -1,14 +1,16 @@
 <div class="row">
-  <div class="valign-wrapper">
-    <!-- <div class="col s6"> -->
-      <h1 class="flex-text"><%= @city.name %></h1>
+    <div class="col s6 grid-example">
+      <h3 class="flex-text"><%= @city.name %>,</h3>
+    </div>
+    <div class="col s6 grid-example">
+      <h3 class="flex-text right" style="color: grey"><%= @city.state + ', ' if @city.state %><%= @city.country %></h3>
+    </div>
     <!-- </div> -->
-    <div class="right-align">
+    <!-- <div class="right">
         <a href='/' class="btn waves-effect waves-light" type="submit" name="action">Edit
           <i class="mdi-content-add right"></i>
         </a>
-    </div>
-  </div>
+    </div> -->
 </div>
 
 

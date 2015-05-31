@@ -53,7 +53,8 @@ get '/cities/:city_id/pics/:id' do
 end
 
 get '/users/new' do
- erb :'users/new'
+  redirect '/' if current_user
+  erb :'users/new'
 end
 
 post '/users' do
@@ -88,6 +89,19 @@ post "/logout" do
   redirect '/'
 end
 
+get '/users/show' do
+  erb :'users/show'
+end
+
+post '/users/show' do 
+  current_user.pic_url = params[:pic_url]
+  if current_user.save
+    redirect '/users/show' 
+  else
+    erb :'/users/show'
+  end
+end
+
 post '/search' do 
   @cities = City.where(name: params[:city_name])
  
@@ -98,7 +112,11 @@ post '/search' do
       erb :'cities/pick_city'
     end
   else
-    session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    if current_user
+      session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+    else
+      session[:flash] = ["There is no page for this city! Login to be able to create new pages!"]
+    end
     session[:city_name] = params[:city_name]
     redirect '/cities/new'
   end
@@ -109,7 +127,11 @@ get '/cities/new' do
     @failed_city_name = session[:city_name]
     session[:city_name] = nil
   end
-  erb :'/cities/new'
+  if current_user
+    erb :'/cities/new'
+  else
+    erb :index
+  end
 end
 
 get '/cities/:id' do 
