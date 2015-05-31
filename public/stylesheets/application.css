@@ -71,3 +71,19 @@
   overflow:visible;
 }
 
+nav {
+  background-image: url('../img/nav-bg_img-opaque.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #FFF;
+}
+
+footer.page-footer {
+  background-color: #FFF;
+}
+
+nav .brand-logo {
+  color: #26a69a;
+  text-shadow: 17px 10px 27px rgba(150, 150, 150, 0.87);
+}
+
