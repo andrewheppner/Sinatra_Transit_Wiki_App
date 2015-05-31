@@ -23,8 +23,20 @@ $(document).ready(function() {
   $('.slider').slider({full_width: false, interval: 100000});
 
   $('#subway').click(function(){
-    $('#icon').val('2');
-  });    
+    $('#icon').val('mdi-maps-directions-subway red');
+  });
+
+  $('#bus').click(function(){
+    $('#icon').val('mdi-maps-directions-bus yellow');
+  });
+
+  $('#bike').click(function(){
+    $('#icon').val('mdi-maps-directions-bike blue');
+  });
+
+  $('#train').click(function(){
+    $('#icon').val('mdi-maps-directions-train green');
+  });
 
 });
 

@@ -166,12 +166,26 @@ get '/cities/:city_id/transit_modes/new' do
   erb :'transit_modes/new'
 end
 
+post '/cities/:city_id/transit_modes' do
+  city = City.find(params[:city_id])
+  transit_modes = city.transit_modes.new(
+    name: params[:name],
+    icon: params[:icon])
+  if transit_modes.save
+    redirect "/cities/#{city.id}/transit_modes/new"
+  else
+    session[:flash] = transit_modes.errors.full_messages
+    redirect "/cities/#{city.id}/transit_modes/new"
+  end
+
+end
+
 get '/cities/:city_id/problems/new' do 
   @city = City.find(params[:city_id])
   erb :'/problems/new'
 end
 
-post '/cities/:city_id/problems/new' do
+post '/cities/:city_id/problems' do
 # TODO: save problem content to db and if saved properly, redirect to previous city page 
   @city = City.find(params[:city_id])
   # erb :'/cities/show'
