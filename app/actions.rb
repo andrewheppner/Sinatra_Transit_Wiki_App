@@ -159,5 +159,12 @@ get '/transit_modes/new' do
   erb :'transit_modes/new'
 end
 
+get '/cities/:city_id/transit_modes/edit' do
+  @city = City.find(params[:city_id]) 
+  erb :'transit_modes/edit'
+end
+
+
+
 
 
