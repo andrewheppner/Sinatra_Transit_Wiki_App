@@ -31,7 +31,7 @@
   <% if @city.transit_modes %>
     <% @city.transit_modes.each do |transit_mode| %>
       <li>
-        <div class="collapsible-header"><i class="mdi-image-filter-drama"></i><%= transit_mode.name %></div>
+        <div class="collapsible-header"><i class="circle <%= transit_mode.icon %>"></i><%= transit_mode.name %></div>
         <div class="collapsible-body" style="display: none;">
           <h5>Fare info</h5>
           <p><%= transit_mode.fare %></p>
@@ -41,12 +41,6 @@
       </li>
     <% end %>
   <% end %>
-  <li>
-    <div class="collapsible-header"><i class="mdi-image-filter-drama"></i>Second</div>
-    <div class="collapsible-body" style="display: none;">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </li>
 </ul>
 
 <% if @city.pics %>
