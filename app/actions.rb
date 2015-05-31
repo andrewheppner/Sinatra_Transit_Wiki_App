@@ -9,8 +9,13 @@ helpers do
     request.referer.starts_with?(settings.domain_name) ? URI(request.referer).path : '/'
   end
 
-  def sign_in
-    session[:user_id] = @user.id 
+  def sign_in(user)
+    session[:user_id] = user.id 
+  end
+
+  def sign_out
+    session.clear
+    current_user = nil
   end
 
 end
@@ -18,7 +23,6 @@ end
 before do
   @flash = session[:flash]
   session[:flash] = nil
-  @user ||= User.new
 end
 
 get '/' do 
@@ -29,7 +33,7 @@ get '/pics/new' do
   erb :'pics/new'
 end
 
-post '/pics/new' do
+post '/pics' do
   #TODO: test with user logged in
   current_user
   @pic = Pic.new(
@@ -58,34 +62,33 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.new(
+  user = User.new(
     username: params[:username],
     email: params[:email],
     password: params[:password],
     password_confirmation: params[:password_confirmation]
     )
-  if @user.save
-    sign_in
+  if user.save
+    sign_in(user)
     redirect '/'
   else
-    session[:flash] = @user.errors.full_messages
+    session[:flash] = user.errors.full_messages
     redirect '/users/new'
   end
 end
 
 post "/login" do
-  @user = User.find_by(email: params[:email])
-  if @user && @user.authenticate(params[:password])
-    sign_in
+  user = User.find_by(email: params[:email])
+  if user && user.authenticate(params[:password])
+    sign_in(user)
   else
     session[:flash] = ['The username or password is incorrect! Sign in unsuccessful!']
   end
-  redirect authenticate
+  redirect last_page_url
 end 
 
 post "/logout" do 
-  current_user = nil
-  session.clear
+  sign_out
   redirect '/'
 end
 
@@ -127,16 +130,16 @@ get '/cities/new' do
 end
 
 get '/cities/:id' do 
-  @city = City.find(params[:id])
+  city = City.find(params[:id])
   erb :'cities/show'
 end
 
 post '/cities' do
-  @city = City.new(
+  city = City.new(
     name: params[:name],
     country: params[:country]
   )
-  @city.state = params[:state] unless params[:state].chomp.empty?
+  city.state = params[:state] unless params[:state].chomp.empty?
   if @city.save
     redirect "/cities/#{@city.id}"
   else
