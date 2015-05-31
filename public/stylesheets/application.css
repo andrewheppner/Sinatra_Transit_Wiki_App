@@ -34,6 +34,12 @@
   border-color: #ebccd1;
 }
 
+.alert-confirm {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
 #search {
     display: none;
     margin-bottom: 0px;
@@ -71,3 +77,15 @@
   overflow:visible;
 }
 
+/*.btn-group, .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}*/

@@ -82,6 +82,7 @@ end
 post "/login" do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
+    session[:confirm] = ["You've successfully logged in!"]
     sign_in(user)
   else
     session[:flash] = ['The username or password is incorrect! Sign in unsuccessful!']
@@ -91,6 +92,7 @@ end
 
 post "/logout" do 
   sign_out
+  session[:confirm] = ["You've been logged out successfully"]
   redirect '/'
 end
 
@@ -150,6 +152,7 @@ post '/cities' do
   )
   @city.state = params[:state] unless params[:state].chomp.empty?
   if @city.save
+    session[:confirm] = ["You've successfully created a new page for this city!"]
     redirect "/cities/#{@city.id}"
   else
     session[:flash] = @city.errors.full_messages
@@ -158,8 +161,23 @@ post '/cities' do
 
 end
 
-get '/transit_modes/new' do 
+get '/cities/:city_id/transit_modes/new' do 
+  @city = City.find(params[:city_id])
   erb :'transit_modes/new'
+end
+
+post '/cities/:city_id/transit_modes' do
+  city = City.find(params[:city_id])
+  transit_modes = city.transit_modes.new(
+    name: params[:name],
+    icon: params[:icon])
+  if transit_modes.save
+    redirect "/cities/#{city.id}/transit_modes/new"
+  else
+    session[:flash] = transit_modes.errors.full_messages
+    redirect "/cities/#{city.id}/transit_modes/new"
+  end
+
 end
 
 get '/cities/:city_id/problems/new' do 
@@ -167,11 +185,11 @@ get '/cities/:city_id/problems/new' do
   erb :'/problems/new'
 end
 
-post '/cities/:city_id/problems/new' do
+post '/cities/:city_id/problems' do
 # TODO: save problem content to db and if saved properly, redirect to previous city page 
   @city = City.find(params[:city_id])
   # erb :'/cities/show'
-  session[:confirm] = ['Thank you! Your report has been sent']
+  session[:confirm] = ['Your report has been submitted! One of our administrators will review it shortly.']
   redirect "/cities/#{@city.id}"
 end
 
