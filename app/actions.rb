@@ -5,7 +5,7 @@ helpers do
      @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def authenticate
+  def last_page_url
     request.referer.starts_with?(settings.domain_name) ? URI(request.referer).path : '/'
   end
 
