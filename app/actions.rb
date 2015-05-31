@@ -180,6 +180,11 @@ post '/cities/:city_id/transit_modes' do
 
 end
 
+get '/cities/:city_id/transit_modes/edit' do
+  @city = City.find(params[:city_id]) 
+  erb :'transit_modes/edit'
+end
+
 get '/cities/:city_id/problems/new' do 
   @city = City.find(params[:city_id])
   erb :'/problems/new'
@@ -192,5 +197,4 @@ post '/cities/:city_id/problems' do
   session[:confirm] = ['Your report has been submitted! One of our administrators will review it shortly.']
   redirect "/cities/#{@city.id}"
 end
-
 
