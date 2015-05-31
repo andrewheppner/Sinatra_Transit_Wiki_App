@@ -153,7 +153,7 @@ post '/cities' do
   @city.state = params[:state] unless params[:state].chomp.empty?
   if @city.save
     session[:confirm] = ["You've successfully created a new page for this city!"]
-    redirect "/cities/#{@city.id}"
+    redirect "/cities/#{@city.id}/transit_modes/new"
   else
     session[:flash] = @city.errors.full_messages
     redirect '/cities/new'
