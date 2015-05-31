@@ -29,15 +29,14 @@ get '/' do
   erb :index
 end
 
-get '/pics/new' do 
+get '/cities/:city_id/pics/new' do 
+  @city = City.find(params[:city_id])
   erb :'pics/new'
 end
 
-post '/pics' do
-  #TODO: test with user logged in
-  current_user
+post '/cities/:city_id/pics' do
   @pic = Pic.new(
-    user_id: params[:user_id],
+    user_id: current_user.id,
     city_id: params[:city_id],
     path: params[:path],
     pic_title: params[:pic_title]
@@ -108,12 +107,10 @@ end
 post '/search' do 
   @cities = City.where(name: params[:city_name])
  
-  if @cities.first
-    if @cities.length == 1
-      redirect "/cities/#{@cities[0].id}"
-    else
-      erb :'cities/pick_city'
-    end
+  if @cities.length > 1
+    erb :'cities/pick_city'
+  elsif @cities.length > 0
+    redirect "/cities/#{@cities[0].id}"
   else
     if current_user
       session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
@@ -139,16 +136,16 @@ get '/cities/new' do
 end
 
 get '/cities/:id' do 
-  city = City.find(params[:id])
+  @city = City.find(params[:id])
   erb :'cities/show'
 end
 
 post '/cities' do
-  city = City.new(
+  @city = City.new(
     name: params[:name],
     country: params[:country]
   )
-  city.state = params[:state] unless params[:state].chomp.empty?
+  @city.state = params[:state] unless params[:state].chomp.empty?
   if @city.save
     redirect "/cities/#{@city.id}"
   else
