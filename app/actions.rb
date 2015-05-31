@@ -122,6 +122,8 @@ post '/cities/:city_id/problems/new' do
 # TODO: save problem content to db and if saved properly, redirect to previous city page 
   @city = City.find(params[:city_id])
   erb :'/cities/show'
+  # session[:confirm] = ['Thank you! Your report has been sent']
+  # # redirect '/cities/show'
 end
 
 
