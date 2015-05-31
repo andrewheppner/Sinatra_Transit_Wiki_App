@@ -20,5 +20,8 @@ $(document).ready(function() {
       accordion : false
     });
 
+  $('.slider').slider({full_width: false, interval: 100000});
+    
+
 });
 
