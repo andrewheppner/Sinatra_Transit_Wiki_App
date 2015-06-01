@@ -169,7 +169,7 @@ post '/cities/:city_id/transit_modes' do
 
 end
 
-get '/cities/:city_id/transit_modes/' do
+get '/cities/:city_id/transit_modes' do
   redirect "/cities/#{params[:city_id]}" unless current_user
   @city = City.find(params[:city_id]) 
   erb :'transit_modes/index'
