@@ -2,11 +2,9 @@
   <h1> Pick a city </h1>  
 </div>
 <div clas="row">
-  <% @cities.each do |city| %>
-    <ul>
-      <li>
-        <a href="/cities/<%= city.id %>"><%= city.name %>, <%= city.state + ', ' if city.state %><%= city.country %></a>
-      </li>
-    </ul>
-  <% end %>
+  <div class="collection">
+    <% @cities.each do |city| %>
+      <a href="/cities/<%= city.id %>" class="collection-item"><%= city.name %>, <%= city.state + ', ' if city.state %><%= city.country %></a>
+    <% end %>
+    <div>
 </div>

@@ -39,6 +39,8 @@ before do
   session[:flash] = nil
   @confirm = session[:confirm]
   session[:confirm] = nil
+  @new_city = session[:new_city]
+  session[:new_city] = nil
   @user ||= User.new
 end
 
@@ -71,9 +73,9 @@ post '/search' do
     redirect "/cities/#{@cities[0].id}"
   else
     if current_user
-      session[:flash] = ["There is no page for this city! Do you want to create a new page?"]
+      session[:flash] = ["There is no page for a city with this name! Do you want to create a new page?"]
     else
-      session[:flash] = ["There is no page for this city! Login to be able to create new pages!"]
+      session[:flash] = ["There is no page for a city with this name! Login to be able to create new pages!"]
     end
     session[:city_name] = params[:city_name]
     redirect '/cities/new'
@@ -118,7 +120,7 @@ end
 get '/cities/new' do
   failed_city_name = nil
   if session[:city_name]
-    failed_city_name = session[:city_name]
+    @failed_city_name = session[:city_name]
     session[:city_name] = nil
   end
   if current_user
@@ -136,6 +138,7 @@ post '/cities' do
   @city.state = params[:state] unless params[:state].chomp.empty?
   if @city.save
     session[:confirm] = ["You've successfully created a new page for this city!"]
+    session[:new_city] = true
     redirect "/cities/#{@city.id}/transit_modes/new"
   else
     session[:flash] = @city.errors.full_messages
@@ -190,7 +193,11 @@ put '/cities/:city_id/transit_modes/:transit_mode_id' do
   @transit_mode = @city.transit_modes.find(params[:transit_mode_id])
   generate_html_code(@transit_mode, params)
   if @transit_mode.save
-    redirect "/cities/#{@city.id}/transit_modes/new"
+    if @new_city
+      redirect "/cities/#{@city.id}/transit_modes/new"
+    else
+      redirect "/cities/#{@city.id}"
+    end
   else
     session[:flash] = @transit_mode.errors.full_messages
     session[:edits] = params
@@ -219,11 +226,11 @@ post '/cities/:city_id/pics' do
   end
 end
 
-# get '/cities/:city_id/pics/:id' do
-#   @city = City.find(params[:city_id])
-#   @pic = @city.pics.find(params[:id])
-#   erb :'/ities/:ci
-# end
+get '/cities/:city_id/pics/:id' do
+  @city = City.find(params[:city_id])
+  @pic = @city.pics.find(params[:id])
+  erb :'/pics/show'
+end
 
 get '/cities/:city_id/problems/new' do 
   @city = City.find(params[:city_id])

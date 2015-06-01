@@ -2,7 +2,7 @@
 <ul class="slides">
   <% city.pics.each do |pic| %>
     <li>
-      <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
+      <a href="/cities/<%= city.id %>/pics/<%= pic.id %>"><img src="<%= pic.path %>" data-caption="<%= pic.title %>"></a>
     </li>
   <% end %>
 </ul>
