@@ -212,7 +212,7 @@ post '/cities/:city_id/pics' do
     )
   if @pic.save
     #TODO: redirect to city page
-    redirect'/cities/:city_id'
+    redirect "/cities/#{params[:city_id]}"
   else
     erb :'/pics/new'
   end
@@ -229,10 +229,9 @@ get '/cities/:city_id/problems/new' do
   erb :'/problems/new'
 end
 
-post '/cities/:city_id/problems' do
+post '/cities/:city_id/problems/new' do
 # TODO: save problem content to db and if saved properly, redirect to previous city page 
   @city = City.find(params[:city_id])
-  # erb :'/cities/show'
   session[:confirm] = ['Your report has been submitted! One of our administrators will review it shortly.']
-  redirect "/cities/#{@city.id}"
+  redirect "/cities/#{params[:city_id]}"
 end
