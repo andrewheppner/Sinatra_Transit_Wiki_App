@@ -190,7 +190,7 @@ put '/cities/:city_id/transit_modes/:transit_mode_id' do
   @transit_mode = @city.transit_modes.find(params[:transit_mode_id])
   generate_html_code(@transit_mode, params)
   if @transit_mode.save
-    redirect "/cities/#{@city.id}/pics/new"
+    redirect "/cities/#{@city.id}/transit_modes/new"
   else
     session[:flash] = @transit_mode.errors.full_messages
     session[:edits] = params

@@ -1,17 +1,12 @@
 <% if current_user %> 
   <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red">
+    <a class="btn-floating btn-large blue-n">
       <i class="large mdi-editor-mode-edit"></i>
     </a>
     <ul>
       <li class="transit-caption-rel">
         <a class="btn-floating red" href="/cities/<%= @city.id %>/problems/new">
           <i class="small mdi-alert-error"></i>
-        </a>
-      </li>
-      <li class="transit-caption-rel">
-        <a class="btn-floating blue" href="/cities/<%= @city.id %>/transit_modes/new">
-          <i class="small mdi-editor-insert-comment"></i>
         </a>
       </li>
       <li class="transit-caption-rel">
