@@ -51,41 +51,21 @@
   float: right;
 }
 
-.fixed-action-btn {
+/*.fixed-action-btn {
   position: relative;
   display: inline-block;
-}
+}*/
 
 .fixed-action-btn ul {
-  text-align: center;
-  position: absolute;
-  bottom: auto;
-  top: 75px;
-}
-
-.fixed-action-btn ul li {
-  margin-bottom: 30px;
+  bottom: 50px;
 }
 
 .t-caption {
   position: absolute;
-  left: 55px;
+  left: -20px;
   top: 3px;
   color: black;
 }
 .btn-floating {
   overflow:visible;
 }
-
-/*.btn-group, .btn-group-vertical {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.btn-group-justified {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: separate;
-}*/
