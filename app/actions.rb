@@ -39,8 +39,6 @@ before do
   session[:flash] = nil
   @confirm = session[:confirm]
   session[:confirm] = nil
-  @new_city = session[:new_city]
-  session[:new_city] = nil
   @user ||= User.new
 end
 
@@ -149,6 +147,7 @@ end
 
 get '/cities/:id' do 
   @city = City.find(params[:id])
+  session[:new_city] = nil
   erb :'cities/show'
 end
 
@@ -193,7 +192,7 @@ put '/cities/:city_id/transit_modes/:transit_mode_id' do
   @transit_mode = @city.transit_modes.find(params[:transit_mode_id])
   generate_html_code(@transit_mode, params)
   if @transit_mode.save
-    if @new_city
+    if session[:new_city]
       redirect "/cities/#{@city.id}/transit_modes/new"
     else
       redirect "/cities/#{@city.id}"
