@@ -209,3 +209,16 @@ post '/cities/:city_id/problems' do
   session[:confirm] = ['Your report has been submitted! One of our administrators will review it shortly.']
   redirect "/cities/#{@city.id}"
 end
+
+get '/users/edit' do 
+  erb :'/users/edit'
+end
+
+put '/users' do
+  current_user.update_attributes!(pic_url: params[:pic_url],
+  username: params[:username],
+  email: params[:email],
+  password: params[:password],
+  password_confirmation: params[:password_confirmation])
+  redirect '/users/show'
+end
