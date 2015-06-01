@@ -58,11 +58,6 @@
   float: right;
 }
 
-/*.fixed-action-btn {
-  position: relative;
-  display: inline-block;
-}*/
-
 .fixed-action-btn ul {
   bottom: 50px;
 }
@@ -73,9 +68,11 @@
   top: 3px;
   color: black;
 }
+
 .btn-floating {
   overflow:visible;
 }
+
 nav {
   background-image: url('../img/nav-bg_img-opaque.png');
   background-size: cover;
@@ -163,15 +160,13 @@ footer.page-footer .footer-copyright {
   background-color: #006983 !important;
 }
 
-
 .side-nav {
   background-color: white;
   opacity: 0.9;
   color: #000;
 }
 
-#login-input::-webkit-input-placeholder
-{
+#login-input::-webkit-input-placeholder {
   color:    #000;
 }
 
@@ -184,7 +179,16 @@ footer.page-footer .footer-copyright {
   background-color: #333;
 }
 
-
 .collapsible-header {
   background-color: #000;
 }
+
+li.collection-item.avatar:hover {
+  background-color: #9f9f9f;
+}
+
+.nav-text {
+  color: #006983;
+}
+
+
