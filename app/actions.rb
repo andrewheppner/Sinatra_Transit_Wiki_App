@@ -20,15 +20,15 @@ helpers do
 
   def generate_html_code(transit_mode, params)
     transit_mode.fare = <<-HTML
-    <p><strong>Fare Types:</strong><br>#{params[:fare_type]}<p>
-    <p><strong>Where to buy:</strong><br>#{params[:fare_where]}<p>
-    <p><strong>Using fares:</strong><br>#{params[:fare_how]}<p>
+    <p><strong>Fare Types:</strong><br>#{params[:fare_type]}</p>
+    <p><strong>Where to buy:</strong><br>#{params[:fare_where]}</p>
+    <p><strong>Using fares:</strong><br>#{params[:fare_how]}</p>
     HTML
     transit_mode.transfers = <<-HTML
-    <p><strong>Obtaining a transfer:</strong><br>#{params[:transfer_how]}<p>
-    <p><strong>When you'll need a transfer:</strong><br>#{params[:transfer_when]}<p>
-    <p><strong>What other services you can transfer to:</strong><br>#{params[:transfer_other]}<p>
-    <p><strong>Time limits:</strong><br>#{params[:transfer_limit]}<p>
+    <p><strong>Obtaining a transfer:</strong><br>#{params[:transfer_how]}</p>
+    <p><strong>When you'll need a transfer:</strong><br>#{params[:transfer_when]}</p>
+    <p><strong>What other services you can transfer to:</strong><br>#{params[:transfer_other]}</p>
+    <p><strong>Time limits:</strong><br>#{params[:transfer_limit]}</p>
     HTML
   end
 

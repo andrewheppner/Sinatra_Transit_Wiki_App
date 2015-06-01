@@ -36,14 +36,14 @@
 
 <ul class="collapsible" data-collapsible="expandable">
   <% if @city.transit_modes.any? %>
-    <% @city.transit_modes.each do |transit_mode| %>
+    <% @city.transit_modes.each do |mode| %>
       <li>
-        <div class="collapsible-header truncate"><i class="circle <%= transit_mode.icon %>"></i><%= transit_mode.name %></div>
+        <div class="collapsible-header truncate"><a href="/cities/<%= @city.id %>/transit_modes/<%= mode.id %>/edit" class="right"><i class="small mdi-editor-mode-edit"></i></a><i class="circle <%= mode.icon %>"></i><%= mode.name %></div>
         <div class="collapsible-body" style="display: none;">
           <h5>Fare info</h5>
-          <p><%= transit_mode.fare %></p>
+          <%= mode.fare %>
           <h5>Tranfer info</h5>
-          <p><%= transit_mode.transfers %></p>
+          <p><%= mode.transfers %></p>
         </div>
       </li>
     <% end %>
