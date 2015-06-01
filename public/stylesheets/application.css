@@ -129,35 +129,36 @@ footer.page-footer .footer-copyright {
 }
 
 .collection .collection-item {
-  background-color: #000
-}
-
-.red-n {
- background-color: #EE352E;
-}
-
-.green-n {
-  background-color: #6CBE45;
-}
-
-.blue-n {
-  background-color: #2850AD;
-}
-
-.yellow-n {
-  background-color: #FCCC0A;
-}
-
-.grey-n {
-  background-color: #A7A9AC;
-}
-.l-green-n {
-  background-color: #006983;
+  background-color: #000;
 }
 
 .btn-large {
-  background-color: #FF6319; 
+  background-color: #FF6319 !important; 
 }
+
+.red-n {
+ background-color: #EE352E !important;
+}
+
+.green-n {
+  background-color: #6CBE45 !important;
+}
+
+.blue-n {
+  background-color: #2850AD !important;
+}
+
+.yellow-n {
+  background-color: #FCCC0A !important;
+}
+
+.grey-n {
+  background-color: #A7A9AC !important;
+}
+.l-green-n {
+  background-color: #006983 !important;
+}
+
 
 .side-nav {
   background-color: white;
@@ -170,3 +171,16 @@ footer.page-footer .footer-copyright {
   color:    #000;
 }
 
+.browser-default {
+  background-color: black;
+  color: white;
+}
+
+.collapsible {
+  background-color: #333;
+}
+
+
+.collapsible-header {
+  background-color: #000;
+}

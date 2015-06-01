@@ -28,23 +28,17 @@
 </div>
 
 
-<% if @city.pics %>
-    <div class="slider hide-on-small-only">  
-      <ul class="slides">
-      <% @city.pics.each do |pic| %>
-        <li>
-          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
-        </li>
-      <% end %>
-      </ul>
-    </div>
+<% if @city.pics.any? %>
+  <div class="slider hide-on-small-only">  
+    <%= erb :slider, locals: {city: @city} %>
+  </div>
 <% end %>
 
 <ul class="collapsible" data-collapsible="expandable">
-  <% if @city.transit_modes %>
+  <% if @city.transit_modes.any? %>
     <% @city.transit_modes.each do |transit_mode| %>
       <li>
-        <div class="collapsible-header"><i class="circle <%= transit_mode.icon %>"></i><%= transit_mode.name %></div>
+        <div class="collapsible-header truncate"><i class="circle <%= transit_mode.icon %>"></i><%= transit_mode.name %></div>
         <div class="collapsible-body" style="display: none;">
           <h5>Fare info</h5>
           <p><%= transit_mode.fare %></p>
@@ -56,22 +50,8 @@
   <% end %>
 </ul>
 
-<% if @city.pics %>
-    <div class="slider hide-on-med-and-up">  
-      <ul class="slides">
-      <% @city.pics.each do |pic| %>
-        <li>
-          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
-        </li>
-      <% end %>
-      </ul>
-    </div>
-<% end %>
-<% if current_user %>
-  <form method="get" action="/cities/<%= @city.id %>/problems/new">
-    <div class='right-align'>
-      </br>
-      <button class="btn waves-effect waves-light" type="submit">Report Problems</button>
-    </div>
-  </form> 
+<% if @city.pics.any? %>
+  <div class="slider hide-on-med-and-up">  
+    <%= erb :slider, locals: {city: @city} %>
+  </div>
 <% end %>

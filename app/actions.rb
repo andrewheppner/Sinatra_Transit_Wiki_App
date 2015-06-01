@@ -49,7 +49,6 @@ end
 post "/login" do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
-    session[:confirm] = ["You've successfully logged in!"]
     sign_in(user)
   else
     session[:flash] = ['The username or password is incorrect! Sign in unsuccessful!']
@@ -151,6 +150,7 @@ get '/cities/:id' do
 end
 
 get '/cities/:city_id/transit_modes/new' do 
+  redirect "/cities/#{params[:city_id]}" unless current_user
   @city = City.find(params[:city_id])
   erb :'transit_modes/new'
 end
@@ -169,7 +169,7 @@ post '/cities/:city_id/transit_modes' do
 
 end
 
-get '/cities/:city_id/transit_modes' do
+get '/cities/:city_id/transit_modes/' do
   redirect "/cities/#{params[:city_id]}" unless current_user
   @city = City.find(params[:city_id]) 
   erb :'transit_modes/index'

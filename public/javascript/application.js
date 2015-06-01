@@ -20,7 +20,7 @@ $(document).ready(function() {
       accordion : false
     });
 
-  $('.slider').slider({full_width: false, interval: 10000000});
+  $('.slider').slider({full_width: false, interval: 10000000, height: 200});
 
   $('#subway').click(function(){
     $('#icon').val('mdi-maps-directions-subway red-n');

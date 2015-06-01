@@ -1,0 +1,8 @@
+
+<ul class="slides">
+  <% city.pics.each do |pic| %>
+    <li>
+      <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
+    </li>
+<% end %>
+</ul>
