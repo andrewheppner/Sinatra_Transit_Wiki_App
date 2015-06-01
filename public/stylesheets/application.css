@@ -133,6 +133,10 @@ footer.page-footer .footer-copyright {
 }
 
 .btn-large {
+  background-color: #FF6319; 
+}
+
+.orange-n {
   background-color: #FF6319 !important; 
 }
 
