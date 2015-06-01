@@ -16,19 +16,20 @@
   </form>
 
 <% else %>
-  <div class="col m4">
+  <div class="left-align col m4">
     <img src= <%= current_user.pic_url %> alt="Profile Pic" height="250" width="250"> 
   </div>
 
 <% end %>
-
-<h4>Email: <%= current_user.email %></h4>
+<div class="center-align col m8">
+  <h4>Email:<small> <%= current_user.email %></small></h4>
+</div>
 
 <% if current_user %>
-  <form method="get" action="/users/edit">
-    <div class='left-align'>
+  <form class ="center-align col m8" method="get" action="/users/edit">
+    <div>
       </br></br>
-      <button class="btn waves-effect waves-light" type="submit">Change My Info</button>
+      <button class="btn waves-effect waves-light orange-n" type="submit">Change My Info</button>
     </div>
   </form> 
 <% end %>
