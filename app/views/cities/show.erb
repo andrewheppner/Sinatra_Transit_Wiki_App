@@ -14,10 +14,7 @@
     <div class="slider hide-on-small-only">  
       <ul class="slides">
         <li>
-          <a href="/cities/<%= @city.id %>/pics/<%= pic.id %>"><img src="<%= pic.path %>"></a>
-          <div class="caption center-align">
-            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
-          </div>
+          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
         </li>
       </ul>
     </div>
@@ -45,10 +42,7 @@
     <div class="slider hide-on-med-and-up">  
       <ul class="slides">
         <li>
-          <img src="<%= pic.path %>">
-          <div class="caption center-align">
-            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
-          </div>
+          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
         </li>
       </ul>
     </div>
