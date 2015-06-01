@@ -1,5 +1,5 @@
-<h2> Profile Page </h2>
-<h4> My Username: <%= current_user.username %></h4>
+
+<h2><%= current_user.username %></h2>
 <% if current_user.pic_url == nil%>
 
   <form method="post" action="/users/show">
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="row center-align">
-       <button class="btn waves-effect waves-light" type="submit">Submit</button>
+       <button class="btn waves-effect waves-light" type="submit">Add Picture</button>
     </div>
   </form>
 
@@ -20,7 +20,7 @@
   </div>
 
 <% end %>
-<h4>My Email: <%= current_user.email %></h4>
+<h4>Email: <%= current_user.email %></h4>
 
 </br>
 <h5>My Stats</h5> </br>

@@ -170,11 +170,14 @@ footer.page-footer .footer-copyright {
 .side-nav {
   background-color: white;
   opacity: 0.9;
+  color: #000;
 }
 
-label.active {
-  color: #00985F;
+#login-input::-webkit-input-placeholder
+{
+  color:    #000;
 }
+
 
 
 
