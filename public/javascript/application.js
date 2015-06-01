@@ -20,22 +20,22 @@ $(document).ready(function() {
       accordion : false
     });
 
-  $('.slider').slider({full_width: false, interval: 100000});
+  $('.slider').slider({full_width: false, interval: 10000000});
 
   $('#subway').click(function(){
-    $('#icon').val('mdi-maps-directions-subway red');
+    $('#icon').val('mdi-maps-directions-subway red-n');
   });
 
   $('#bus').click(function(){
-    $('#icon').val('mdi-maps-directions-bus yellow');
+    $('#icon').val('mdi-maps-directions-bus yellow-n');
   });
 
   $('#bike').click(function(){
-    $('#icon').val('mdi-maps-directions-bike blue');
+    $('#icon').val('mdi-maps-directions-bike blue-n');
   });
 
   $('#train').click(function(){
-    $('#icon').val('mdi-maps-directions-train green');
+    $('#icon').val('mdi-maps-directions-train green-n');
   });
 
 });

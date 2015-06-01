@@ -2,6 +2,8 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    color: #FFF;
+    background-color: #000;
   }
 
   main {
@@ -11,6 +13,11 @@
 .mdi-navigation-menu {
   margin-right: 15px;
   background-color: transparent;
+  color: #006983;
+}
+
+.large.mdi-action-search.nav {
+  color: #006983;
 }
 
 .nav-wrapper-container {
@@ -85,7 +92,7 @@ nav {
 }
 
 footer.page-footer {
-  background-color: #FFF;
+  background-color: #000;
 }
 
 nav .brand-logo {
@@ -103,7 +110,8 @@ nav .brand-logo {
 
 @media only screen and (max-height : 568px) {
   .tall-screen-only {
-    display: none; } }
+    display: none;
+    background-color: #000; } }
 
 .input-field.registration {
   height: 45px;
@@ -113,17 +121,63 @@ nav .brand-logo {
   margin-top: 22px;
 }
 
+
 footer.page-footer .footer-copyright {
-  color: #000;
+  color: #808183;
   font-weight: light;
 }
 
 #city-page-title {
   margin-bottom:0px;
+
 }
 
 #country {
   margin-top:0px;
 }
+
+.collection .collection-item {
+  background-color: #000
+}
+
+.red-n {
+ background-color: #EE352E;
+}
+
+.green-n {
+  background-color: #6CBE45;
+}
+
+.blue-n {
+  background-color: #2850AD;
+}
+
+.yellow-n {
+  background-color: #FCCC0A;
+}
+
+.grey-n {
+  background-color: #A7A9AC;
+}
+.l-green-n {
+  background-color: #006983;
+}
+
+.btn-large {
+  background-color: #FF6319; 
+}
+
+.side-nav {
+  background-color: white;
+  opacity: 0.9;
+}
+
+label.active {
+  color: #00985F;
+}
+
+
+
+
 
 
