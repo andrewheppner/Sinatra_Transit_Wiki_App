@@ -37,7 +37,7 @@ task "db:seed" do
   city1.pics.create(title: "Our Patron Saint", path:"http://images.wisegeek.com/sloth-in-tree-showing-claws.jpg")
   city1.transit_modes.create(
     name: "Subway",
-    icon: "mdi-content-send",
+    icon: "mdi-maps-directions-subway red-n",
     fare: "<p><strong>Fare Types:</strong><br>Tokens, Child/Senior Tickets, Daily, Weekly and Monthly passes (Monthly passes are called Metropasses)</p>\n    <p><strong>Where to buy:</strong><br>There are tellers and automated machines for purchasing Tokens at all stations, and machines for purchasing monthly passes at some stations.</p>\n    <p><strong>Using fares:</strong><br>To enter the subway, you must provide your fare to a teller, or if you are using a monthly pass or token, you can insert them directly into turnstiles</p>\n",
     transfers:"<p><strong>Obtaining a transfer:</strong><br>Tokens, Child/Senior Tickets, Daily, Weekly and Monthly passes (Monthly passes are called Metropasses)</p>\n    <p><strong>When to transfer:</strong><br>There are tellers and automated machines for purchasing Tokens at all stations, and machines for purchasing monthly passes at some stations.</p>\n    <p><strong>What transfers let you do:</strong><br>Buses and Streetcars</p>\n    <p><strong>Time limits:</strong><br>1 hour and 30 minutes, with no stop in between.</p>\n")
 end

@@ -197,6 +197,7 @@ li.collection-item.avatar:hover {
   color: #006983;
 }
 
-
-
+.collapsible-body p {
+  padding: 10px 28px;
+}
 
