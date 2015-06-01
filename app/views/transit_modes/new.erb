@@ -12,7 +12,7 @@
  -->
 
 <div class="row">
-  <h3>Add the types of transit availbale in <%= @city.name %> to your page!</h3>
+  <h4>Add Transit Modes for <%= @city.name %></h4>
 </div>
 <form method='post' action='/cities/<%= @city.id %>/transit_modes'>
    <div class="row" style="margin: 0">
@@ -23,19 +23,19 @@
   </div>  
   
   <div class="row center-align">
-    <h5>To submit, choose an icon for this transit mode from the selection below:</h5>
+    <h5><small>To submit, choose an icon for this transit mode below:</small></h5>
   </div>
   <input type="hidden" id="icon" name="icon">
   <div class="row center-align">
     <div class="col s3">
-      <button class="btn-floating btn-large red" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
+      <button class="btn-floating btn-large red mode-button" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
     </div>
     <div class="col s3">
-      <button class="btn-floating btn-large yellow darken-1" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
+      <button id="icon-selector" class="btn-floating btn-large yellow darken-1 mode-button" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
     </div>
-      <button class="btn-floating btn-large green" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
+      <button class="btn-floating btn-large green mode-button" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
     <div class="col s3">
-      <button class="btn-floating btn-large blue" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
+      <button class="btn-floating btn-large blue mode-button" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
     </div>
   </div>
 </form>
@@ -54,7 +54,7 @@
   <% end %>
 </div>
 <div class="row center">
-  <a href="/cities/<%= @city.id %>/transit_modes/" class="btn waves-effect waves-light" type="submit" name="action">Continue to Edit Further
+  <a href="/cities/<%= @city.id %>/transit_modes" class="btn waves-effect waves-light" type="submit" name="action">Continue to Edit Further
     <i class="mdi-content-add right"></i>
   </a>
 </div>

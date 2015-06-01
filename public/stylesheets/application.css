@@ -77,7 +77,6 @@
   overflow:visible;
 }
 
-<<<<<<< HEAD
 nav {
   background-image: url('../img/nav-bg_img-opaque.png');
   background-size: cover;
@@ -118,17 +117,13 @@ footer.page-footer .footer-copyright {
   color: #000;
   font-weight: light;
 }
-=======
-/*.btn-group, .btn-group-vertical {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
+
+#city-page-title {
+  margin-bottom:0px;
 }
 
-.btn-group-justified {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: separate;
-}*/
->>>>>>> 8a941132323fdf22385dd2f7e2a7aa06f032041b
+#country {
+  margin-top:0px;
+}
+
+

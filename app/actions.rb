@@ -177,15 +177,16 @@ get '/cities/:city_id/pics/new' do
 end
 
 post '/cities/:city_id/pics' do
+  @city = City.find(params[:city_id])
   @pic = Pic.new(
     user_id: current_user.id,
     city_id: params[:city_id],
     path: params[:path],
-    pic_title: params[:pic_title]
+    title: params[:title]
     )
   if @pic.save
     #TODO: redirect to city page
-    redirect '/pics/show' 
+    redirect '/cities/:city_id/show' 
   else
     erb :'/pics/new'
   end
