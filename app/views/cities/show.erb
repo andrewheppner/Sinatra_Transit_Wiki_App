@@ -23,13 +23,8 @@
   </div>
 <% end %>
 <div class="row">
-    <div class="right">
-      <a href='/' class="btn waves-effect waves-light" type="submit" name="action">Edit
-        <i class="mdi-content-add right"></i>
-      </a>
-    </div>
-    <h3><%= @city.name %></h3>
-    <h3 style="color: grey"><%= @city.state + ', ' if @city.state %><%= @city.country %></h3>
+    <h3 id="city-page-title"><%= @city.name %></h3>
+    <h5 id="country" style="color: grey"><small><%= @city.state + ', ' if @city.state %><%= @city.country %></small></h5>
 </div>
 
 

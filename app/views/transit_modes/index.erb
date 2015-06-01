@@ -1,11 +1,12 @@
 <h3 class='left-align'>Add Details to Transit Modes</h3>
-<% if @city.transit_modes.any? %>
-  <div class="collection">
-    <% @city.transit_modes.each do |mode| %>
-      <a href="/cities/<%= @city.id %>/transit_modes/<%= mode.id %>/edit" class="collection-item"><%= mode.name %></a>
-    <% end %>
-  </div>
-<% end %>
+<ul class="collection">
+  <% @city.transit_modes.each do |mode| %>
+  <li class="collection-item avatar">
+    <i class="medium <%= mode.icon %> circle"></i>
+    <span class="title"><%= mode.name %></span>
+  </li>
+  <% end %>
+</ul>
 <form method='get' action='/cities/<%= @city.id %>/pics/new'>
   <div class='center-align'>
     </br>

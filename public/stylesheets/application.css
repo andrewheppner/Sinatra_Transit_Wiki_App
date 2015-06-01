@@ -2,15 +2,22 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    color: #FFF;
+    background-color: #000;
   }
 
   main {
     flex: 1 0 auto;
   }
 
-.mdi-navigation-menu{
+.mdi-navigation-menu {
   margin-right: 15px;
   background-color: transparent;
+  color: #006983;
+}
+
+.large.mdi-action-search.nav {
+  color: #006983;
 }
 
 .nav-wrapper-container {
@@ -69,3 +76,97 @@
 .btn-floating {
   overflow:visible;
 }
+nav {
+  background-image: url('../img/nav-bg_img-opaque.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #FFF;
+}
+
+footer.page-footer {
+  background-color: #000;
+}
+
+nav .brand-logo {
+  color: #26a69a;
+  text-shadow: 17px 10px 27px rgba(150, 150, 150, 0.87);
+  margin-top: 11px;
+}
+
+#register_button {
+  position: relative;
+  margin-top: 85px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+@media only screen and (max-height : 568px) {
+  .tall-screen-only {
+    display: none;
+    background-color: #000; } }
+
+.input-field.registration {
+  height: 45px;
+}
+
+#reg-submit-button {
+  margin-top: 22px;
+}
+
+
+footer.page-footer .footer-copyright {
+  color: #808183;
+  font-weight: light;
+}
+
+#city-page-title {
+  margin-bottom:0px;
+
+}
+
+#country {
+  margin-top:0px;
+}
+
+.collection .collection-item {
+  background-color: #000
+}
+
+.red-n {
+ background-color: #EE352E;
+}
+
+.green-n {
+  background-color: #6CBE45;
+}
+
+.blue-n {
+  background-color: #2850AD;
+}
+
+.yellow-n {
+  background-color: #FCCC0A;
+}
+
+.grey-n {
+  background-color: #A7A9AC;
+}
+.l-green-n {
+  background-color: #006983;
+}
+
+.btn-large {
+  background-color: #FF6319; 
+}
+
+.side-nav {
+  background-color: white;
+  opacity: 0.9;
+  color: #000;
+}
+
+#login-input::-webkit-input-placeholder
+{
+  color:    #000;
+}
+

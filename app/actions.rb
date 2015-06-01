@@ -204,6 +204,7 @@ get '/cities/:city_id/pics/new' do
 end
 
 post '/cities/:city_id/pics' do
+  @city = City.find(params[:city_id])
   @pic = Pic.new(
     user_id: current_user.id,
     city_id: params[:city_id],

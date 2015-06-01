@@ -1,24 +1,25 @@
-<h1 class='center-align'>Teach me How to Buggy<h1>
-<h5 class='flow-text center-align'><small>Figure out how to not look like an idiot when you want to use public transit!</small></h5>
+<h1 class='center-align hide-on-small-only'>Teach me How to Buggy</h1>
+<h4 class='center-align hide-on-med-and-up'>Teach me How to Buggy</h4>
+<h5 class='flow-text center-align'><small><em>Figure out how to not look like an idiot when you want to use public transit!</em></small></h5>
 <form method='POST' action='/search'>
-  <div class="row">
+  <div class="row city-search">
     <div class="input-field col s12 m10 offset-m1">
       <input id="main-search" name="city_name" type="text" class="validate" value="<%= @failed_city_name %>">
-      <label for="main-search">In what city do you NOT want to be embarrased?</label>
+      <label for="main-search"><small>In what city do you NOT want to be embarrased?</small></label>
     </div>
   </div>
   <div class="row center-align">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+    <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Search
       <i class="large mdi-action-search right"></i>
     </button>
   </div>
 </form>
 
 <% if !current_user %>
-  <form method='get' action='/users/new'>
+  <form id="register_button" method='get' action='/users/new'>
     <div class='center-align'>
       </br>
-      <button class="btn waves-effect waves-light" type="submit">Register Here!</button>
+      <button class="btn waves-effect waves-light grey-n" type="submit">Register Here!</button>
     </div>
   </form> 
 <% end %>
