@@ -1,19 +1,53 @@
-<div class="row">
+<h4 class="center">Add detail for <%= @transit_mode.name %></h4>
   <form method="POST" action="/cities/<%= @city.id %>/transit_modes/<%= @transit_mode.id %>">
-    <div class="input-field col s12">
-      <textarea id="fare info" class="materialize-textarea"></textarea>
-      <label for="textarea1">What types of fares are availible?</label>
+    <input type="hidden" name="_method" value="PUT">
+    <h5><i class="small mdi-maps-local-atm"></i> Fare Info:</h5>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="fare_info" class="materialize-textarea" name="fare_type" value="<%= @edits.fare_type if @edits %>"></textarea>
+        <label for="fare_info">What types of fares are availible?</label>
+      </div>
     </div>
-    <div class="input-field col s12">
-      <textarea id="fare info" class="materialize-textarea"></textarea>
-      <label for="textarea1">What can you obtain these fares? (teller, automated machines, etc)</label>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="fare_where" class="materialize-textarea" name="fare_where" value="<%= @edits.fare_where if @edits %>"></textarea>
+        <label for="fare_where">Where can you obtain these fares? (teller, automated machines, etc)</label>
+      </div>
     </div>
-    <div class="input-field col s12">
-      <textarea id="fare info" class="materialize-textarea"></textarea>
-      <label for="textarea1">What types of fares are availible?</label>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="fare_how" class="materialize-textarea" name="fare_how" value="<%= @edits.fare_how if @edits %>"></textarea>
+        <label for="fare_how">How do you use these fares? Include details regarding turn stiles, card readers, etc.</label>
+      </div>
     </div>
-    <input id="city-name" name='name' type="text" class="validate" value="<%= @failed_city_name %>">
-    <label for="city-name">The name of the transit mode</label>
-
+    <h5 class="valign"><i class="small mdi-action-receipt"></i>  Transfer Info:</h5>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="transfer_how" class="materialize-textarea" name="transfer_how" value="<%= @edits.transfer_how if @edits %>"></textarea>
+        <label for="transfer_how">How do you obtain a transfer?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="transfer_when" class="materialize-textarea" name="transfer_when" value="<%= @edits.transfer_when if @edits %>"></textarea>
+        <label for="textarea1">When do you need a transfer? Is it required for all fare types?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="transfer_other" class="materialize-textarea" name="transfer_other" value="<%= @edits.transfer_other if @edits %>"></textarea>
+        <label for="transfer_other">What other modes of transit can you use with a transfer?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="transfer_limit" type="text" name="transfer_limit" value="<%= @edits.fare_limit if @edits %>">
+        <label for="transfer_limit">What is the time limit for using a transfer?</label>
+      </div>
+    </div>
+    <div class="row center">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="mdi-action-done-all right"></i>
+      </button>
+    </div>
   </form>
-</div>

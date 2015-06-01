@@ -10,18 +10,15 @@
 
 
 <% if @city.pics %>
-  <% @city.pics.each do |pic| %>
     <div class="slider hide-on-small-only">  
       <ul class="slides">
+      <% @city.pics.each do |pic| %>
         <li>
-          <a href="/cities/<%= @city.id %>/pics/<%= pic.id %>"><img src="<%= pic.path %>"></a>
-          <div class="caption center-align">
-            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
-          </div>
+          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
         </li>
+      <% end %>
       </ul>
     </div>
-  <% end %>
 <% end %>
 
 <ul class="collapsible" data-collapsible="expandable">
@@ -41,18 +38,15 @@
 </ul>
 
 <% if @city.pics %>
-  <% @city.pics.each do |pic| %>
     <div class="slider hide-on-med-and-up">  
       <ul class="slides">
+      <% @city.pics.each do |pic| %>
         <li>
-          <img src="<%= pic.path %>">
-          <div class="caption center-align">
-            <h5 class="light grey-text text-lighten-3"><%= pic.title %></h5>
-          </div>
+          <img src="<%= pic.path %>" class="materialboxed" data-caption="<%= pic.title %>">
         </li>
+      <% end %>
       </ul>
     </div>
-  <% end %>
 <% end %>
 <% if current_user %>
   <form method="get" action="/cities/<%= @city.id %>/problems/new">

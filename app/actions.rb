@@ -18,6 +18,20 @@ helpers do
     current_user = nil
   end
 
+  def generate_html_code(transit_mode, params)
+    transit_mode.fare = <<-HTML
+    <p><strong>Fare Types:</strong><br>#{params[:fare_type]}<p>
+    <p><strong>Where to buy:</strong><br>#{params[:fare_where]}<p>
+    <p><strong>Using fares:</strong><br>#{params[:fare_how]}<p>
+    HTML
+    transit_mode.transfers = <<-HTML
+    <p><strong>Obtaining a transfer:</strong><br>#{params[:transfer_how]}<p>
+    <p><strong>When you'll need a transfer:</strong><br>#{params[:transfer_when]}<p>
+    <p><strong>What other services you can transfer to:</strong><br>#{params[:transfer_other]}<p>
+    <p><strong>Time limits:</strong><br>#{params[:transfer_limit]}<p>
+    HTML
+  end
+
 end
 
 before do
@@ -164,11 +178,24 @@ end
 get '/cities/:city_id/transit_modes/:transit_mode_id/edit' do
   @city = City.find(params[:city_id])
   @transit_mode = @city.transit_modes.find(params[:transit_mode_id])
+  if session[:edits]
+    @edits = session[:edits]
+    session[:edits] = nil
+  end
   erb :'transit_modes/edit'
-
 end
 
-post '/cities/:city_id/transit_modes/:transit_mode_id' do
+put '/cities/:city_id/transit_modes/:transit_mode_id' do
+  @city = City.find(params[:city_id])
+  @transit_mode = @city.transit_modes.find(params[:transit_mode_id])
+  generate_html_code(@transit_mode, params)
+  if @transit_mode.save
+    redirect "/cities/#{@city.id}/pics/new"
+  else
+    session[:flash] = @transit_mode.errors.full_messages
+    session[:edits] = params
+    redirect "/cities/#{@city_id}/transit_modes/#{@transit_mode.id}/edit"
+  end
 end
 
 get '/cities/:city_id/pics/new' do 
@@ -181,33 +208,32 @@ post '/cities/:city_id/pics' do
     user_id: current_user.id,
     city_id: params[:city_id],
     path: params[:path],
-    pic_title: params[:pic_title]
+    title: params[:title]
     )
   if @pic.save
     #TODO: redirect to city page
-    redirect '/pics/show' 
+    redirect "/cities/#{params[:city_id]}"
   else
     erb :'/pics/new'
   end
 end
 
-get '/cities/:city_id/pics/:id' do
-  @city = City.find(params[:city_id])
-  @pic = @city.pics.find(params[:id])
-  erb :'/pics/show'
-end
+# get '/cities/:city_id/pics/:id' do
+#   @city = City.find(params[:city_id])
+#   @pic = @city.pics.find(params[:id])
+#   erb :'/ities/:ci
+# end
 
 get '/cities/:city_id/problems/new' do 
   @city = City.find(params[:city_id])
   erb :'/problems/new'
 end
 
-post '/cities/:city_id/problems' do
+post '/cities/:city_id/problems/new' do
 # TODO: save problem content to db and if saved properly, redirect to previous city page 
   @city = City.find(params[:city_id])
-  # erb :'/cities/show'
   session[:confirm] = ['Your report has been submitted! One of our administrators will review it shortly.']
-  redirect "/cities/#{@city.id}"
+  redirect "/cities/#{params[:city_id]}"
 end
 
 get '/users/edit' do 
