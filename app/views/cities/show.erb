@@ -41,9 +41,9 @@
         <div class="collapsible-header truncate"><i class="circle <%= transit_mode.icon %>"></i><%= transit_mode.name %></div>
         <div class="collapsible-body" style="display: none;">
           <h5>Fare info</h5>
-          <p><%= transit_mode.fare %></p>
+          <%= transit_mode.fare %>
           <h5>Tranfer info</h5>
-          <p><%= transit_mode.transfers %></p>
+          <%= transit_mode.transfers %>
         </div>
       </li>
     <% end %>
