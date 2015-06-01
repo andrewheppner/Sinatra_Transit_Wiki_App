@@ -15,33 +15,46 @@
   <input type="hidden" id="icon" name="icon">
   <div class="row center-align">
     <div class="col s3">
-      <button class="btn-floating btn-large red-n" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
+      <button title="metro/subway" class="btn-floating btn-large red-n" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
     </div>
     <div class="col s3">
-      <button class="btn-floating btn-large yellow-n" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
+      <button title="bus" class="btn-floating btn-large yellow-n" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
     </div>
-      <button class="btn-floating btn-large green-n" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
     <div class="col s3">
-      <button class="btn-floating btn-large blue-n" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
+      <button title="train" class="btn-floating btn-large green-n" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
+    </div>
+    <div class="col s3">
+      <button title="bikes" class="btn-floating btn-large blue-n" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
     </div>
   </div>
 </form>
-<div class="row">
-</div>
+<br>
+
 <div class="row">
   <% if @city.transit_modes.any? %>
-     <ul class="collection">
+     <ul class="collection col s10 offset-s1">
       <% @city.transit_modes.each do |mode| %>
       <li class="collection-item avatar">
+        <a href="/cities/<%= @city.id %>/transit_modes/<%= mode.id %>/edit" class='right'>
+          <i class="small mdi-editor-mode-edit"></i>
+        </a>
         <i class="medium <%= mode.icon %> circle"></i>
-        <span class="title"><%= mode.name %></span>
+        <span class="title truncate"><%= mode.name %></span>
       </li>
       <% end %>
     </ul>
   <% end %>
 </div>
+
 <div class="row center">
-  <a href="/cities/<%= @city.id %>/transit_modes/" class="btn waves-effect waves-light orange-n" type="submit" name="action">Continue to Edit Further
-    <i class="mdi-content-add right"></i>
-  </a>
+  <div class="col s5 offset-s1">
+    <a href="/cities/<%= @city.id %>/pics/new" class="btn waves-effect waves-light orange-n" type="submit" name="action">Add a picture
+      <i class="mdi-editor-attach-file right"></i>
+    </a>
+  </div>
+  <div class="col s5">
+    <a href="/cities/<%= @city.id %>" class="btn waves-effect waves-light orange-n" type="submit" name="action">Done Editing
+      <i class="mdi-action-done-all right"></i>
+    </a>
+  </div>
 </div>
