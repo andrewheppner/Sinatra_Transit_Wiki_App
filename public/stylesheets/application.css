@@ -181,6 +181,12 @@ footer.page-footer .footer-copyright {
 
 .collapsible-header {
   background-color: #000;
+  height: 55px;
+}
+
+.collapsible-header i.circle {
+  width: 42px;
+  margin-top: 5px;
 }
 
 li.collection-item.avatar:hover {
@@ -190,5 +196,7 @@ li.collection-item.avatar:hover {
 .nav-text {
   color: #006983;
 }
+
+
 
 
