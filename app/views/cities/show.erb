@@ -1,3 +1,10 @@
+
+<!-- This is to get rid of the column restrictions -->
+</div>
+<%= erb :'cities/_parallax', locals: {city: @city} if @city %>
+<!-- Back to column layout -->
+<div class="col s10 offset-s1 m8 offset-m2">
+
 <% if current_user %> 
   <div class="fixed-action-btn">
     <a class="btn-floating btn-large blue-n">
@@ -22,40 +29,43 @@
     </ul>
   </div>
 <% end %>
-<div class="row">
+
+  <div class="row">
     <h3 id="city-page-title"><%= @city.name %></h3>
     <h5 id="country" style="color: grey"><small><%= @city.state + ', ' if @city.state %><%= @city.country %></small></h5>
-</div>
-
-
-<% if @city.pics.any? %>
-  <div class="slider hide-on-small-only">  
-    <%= erb :slider, locals: {city: @city} %>
   </div>
-<% end %>
 
-<ul class="collapsible" data-collapsible="expandable">
-  <% if @city.transit_modes.any? %>
-    <% @city.transit_modes.each do |mode| %>
-      <li>
-        <div class="collapsible-header truncate">
-          <a href="/cities/<%= @city.id %>/transit_modes/<%= mode.id %>/edit" class="right">
-            <i class="small mdi-editor-mode-edit circle"></i>
-          </a>
-          <i class="circle <%= mode.icon %>"></i><%= mode.name %></div>
-        <div class="collapsible-body" style="display: none;">
-          <h5>Fare info</h5>
-          <%= mode.fare %>
-          <h5>Tranfer info</h5>
-          <%= mode.transfers %>
-        </div>
-      </li>
-    <% end %>
+
+
+  <% if @city.pics.any? %>
+    <div class="slider hide-on-small-only">  
+      <%= erb :slider, locals: {city: @city} %>
+    </div>
   <% end %>
-</ul>
 
-<% if @city.pics.any? %>
-  <div class="slider hide-on-med-and-up">  
-    <%= erb :slider, locals: {city: @city} %>
-  </div>
-<% end %>
+  <ul class="collapsible" data-collapsible="expandable">
+    <% if @city.transit_modes.any? %>
+      <% @city.transit_modes.each do |mode| %>
+        <li>
+          <div class="collapsible-header truncate">
+            <a href="/cities/<%= @city.id %>/transit_modes/<%= mode.id %>/edit" class="right">
+              <i class="small mdi-editor-mode-edit circle"></i>
+            </a>
+            <i class="circle <%= mode.icon %>"></i><%= mode.name %></div>
+          <div class="collapsible-body" style="display: none;">
+            <h5>Fare info</h5>
+            <%= mode.fare %>
+            <h5>Tranfer info</h5>
+            <%= mode.transfers %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <% if @city.pics.any? %>
+    <div class="slider hide-on-med-and-up">  
+      <%= erb :slider, locals: {city: @city} %>
+    </div>
+  <% end %>
+</div>

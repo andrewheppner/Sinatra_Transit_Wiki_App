@@ -38,5 +38,9 @@ $(document).ready(function() {
     $('#icon').val('mdi-maps-directions-train green-n');
   });
 
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+
 });
 

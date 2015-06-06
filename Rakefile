@@ -34,7 +34,7 @@ task "db:seed" do
   user2 = User.create!(email: "andrew@email", username: "Andrew", password: "password")
   city1 = City.create!(name: "Toronto", state:"Ontario", country:"Canada")
   city2 = City.create!(name: "Paris", country:"France")
-  # city2 = City.create!(name: "Toronto", state:'Illinois', country:"United States")
+  city2 = City.create!(name: "Toronto", state:'Illinois', country:"United States")
   city1.pics.create(title: "TTC Subway Map", path:"http://i.imgur.com/UEtze3W.jpg")
   city1.pics.create(title: "TTC Subway Map", path:"http://i644.photobucket.com/albums/uu170/hobble123/TTC2050.jpg")
   city1.transit_modes.create(

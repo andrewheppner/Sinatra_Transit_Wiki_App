@@ -3,7 +3,7 @@
     min-height: 100vh;
     flex-direction: column;
     color: #FFF;
-    background-color: #000;
+    background-color: #222;
   }
 
   main {
@@ -199,4 +199,7 @@ li.collection-item.avatar:hover {
 
 .collapsible-body p {
   padding: 10px 28px;
+}
+.parallax-container {
+  height: 250px;
 }
