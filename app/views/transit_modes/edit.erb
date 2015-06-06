@@ -16,6 +16,13 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
+        <label>Payment Methods</label>
+        <%= check_box_tag %>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
         <textarea id="fare_how" class="materialize-textarea" name="fare_how" value="<%= @edits.fare_how if @edits %>"></textarea>
         <label for="fare_how">How do you use these fares? Include details regarding turn stiles, card readers, etc.</label>
       </div>
