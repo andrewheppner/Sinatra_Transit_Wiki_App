@@ -11,8 +11,8 @@ class City < ActiveRecord::Base
 
   def scrape_header_pic
     list   = flickr.photos.search(text: name+" transit",sort: "relevance", content_type: '1', page: '1', per_page: '2')
-    id     = list[1].id
-    secret = list[1].secret
+    id     = list[0].id
+    secret = list[0].secret
     info = flickr.photos.getInfo :photo_id => id, :secret => secret
     update_attributes(header: FlickRaw.url_b(info))
   end
