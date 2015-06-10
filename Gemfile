@@ -12,7 +12,7 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'backports'
-gem 'nokogiri'
+gem 'flickraw'
 
 group :development, :test do
   gem 'pry'

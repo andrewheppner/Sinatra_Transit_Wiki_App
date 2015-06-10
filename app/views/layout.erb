@@ -6,10 +6,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="/stylesheets/materialize.min.css"  media="screen,projection"/>
+      <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="/stylesheets/application.css">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+      <title>TMHTB</title>
     </head>
 
     <body>
@@ -22,6 +25,9 @@
       <!-- Yield for main content -->
     <main>
       <div class="row">
+        <% if @city %>
+          <%= erb :'cities/_parallax', locals: {city: @city} if @city %>
+        <% end %>
         <div class="col s10 offset-s1 m8 offset-m2">
           <%= erb :warning, locals: {flash: @flash} %>
           <%= erb :confirmation, locals: {confirm: @confirm} %>

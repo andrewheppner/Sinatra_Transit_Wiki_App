@@ -11,6 +11,7 @@ require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
 require 'byebug'
+require 'flickraw'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -32,3 +33,6 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+FlickRaw.api_key="1be309fa475fa710a58e3eb0ae19ccd3"
+FlickRaw.shared_secret="b9de7347976629c9"

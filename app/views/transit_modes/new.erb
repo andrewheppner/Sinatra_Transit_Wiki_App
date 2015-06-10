@@ -4,8 +4,8 @@
 <form method='post' action='/cities/<%= @city.id %>/transit_modes'>
    <div class="row" style="margin: 0">
     <div class="input-field">
-      <input id="city-name" name='name' type="text" class="validate" value="<%= @failed_city_name %>">
-      <label for="city-name">The name of the transit mode</label>
+      <input id="transit-name" name='name' type="text" class="validate" placeholder="The name of the transit mode">
+      <!-- <label type="hidden" for="transit-name">The name of the transit mode</label> -->
     </div>
   </div>  
   
@@ -13,18 +13,19 @@
     <h5><small>To submit, choose an icon for this transit mode below:</small></h5>
   </div>
   <input type="hidden" id="icon" name="icon">
-  <div class="row center-align">
+  <input type="hidden" id="backup" name="backup">
+  <div class="row center-align button-row">
     <div class="col s3">
-      <button title="metro/subway" class="btn-floating btn-large red-n" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
+      <button title="Metro/Subway" class="btn-floating btn-large red-n" id="subway" type="submit" name="action"><i class="large mdi-maps-directions-subway"></i></button>
     </div>
     <div class="col s3">
-      <button title="bus" class="btn-floating btn-large yellow-n" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
+      <button title="Bus" class="btn-floating btn-large yellow-n" id="bus" type="submit" name="action"><i class="large mdi-maps-directions-bus"></i></button>
     </div>
     <div class="col s3">
-      <button title="train" class="btn-floating btn-large green-n" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
+      <button title="Train" class="btn-floating btn-large green-n" id="train" type="submit" name="action"><i class="large mdi-maps-directions-train"></i></button>
     </div>
     <div class="col s3">
-      <button title="bikes" class="btn-floating btn-large blue-n" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
+      <button title="Bikes" class="btn-floating btn-large blue-n" id="bike" type="submit" name="action"><i class="large mdi-maps-directions-bike"></i></button>
     </div>
   </div>
 </form>

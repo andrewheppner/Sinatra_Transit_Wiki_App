@@ -30,7 +30,7 @@ task "db:seed" do
   User.destroy_all
   Pic.destroy_all
   
-  user1 = User.create!(email: "brun@email", username: "Bruno", password: "password")
+  user1 = User.create!(email: "bruno@email", username: "Bruno", password: "password")
   user2 = User.create!(email: "andrew@email", username: "Andrew", password: "password")
   city1 = City.create!(name: "Toronto", state:"Ontario", country:"Canada")
   city2 = City.create!(name: "Paris", country:"France")

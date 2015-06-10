@@ -11,66 +11,18 @@
         </li>
       </ul>
       <% if current_user %>
-        <form method="post" action="/logout"> 
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <div class="right hide-on-med-and-down blue-n">
-                <li><a class="nav-text" href="/users/show">Profile</a></li>
-                <li>
-                  <button class="btn waves-effect waves-light l-green-n" type="submit" name="action">Sign Out</button>
-                </li>
-              </div>
-            </li>
-          </ul>
-        </form>
-        <form method="post" action="/logout">  
-          <ul class="side-nav" id="mobile-demo">
-            <li>
-              <div class="right hide-on-med-and-down">
-                <li><a class="nav-text"href="/users/show">Profile</a></li>
-                <li>
-                  <button class="btn waves-effect waves-light l-green-n" type="submit" name="action">Sign Out</button>
-                </li>
-              </div>
-            </li>
-
-          </ul>
-        </form> 
+        <ul class="right hide-on-med-and-down">
+          <%= erb :'_user_nav' %>
+        <ul class="side-nav" id="mobile-demo">
+          <%= erb :'_user_nav' %> 
+        </ul>
       <% else %>
-        <form method="post" action="/login">
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <div class="input-field">
-                <input id="login-input" placeholder="Email" name="email" id="email" type="email" class="validate">
-              </div>
-            </li>
-            <li>
-              <div class="input-field">
-                <input id="login-input" placeholder="Password" name="password" id="password" type="password" class="validate">
-              </div>
-            </li>
-            <li>
-              <button class="btn waves-effect waves-light l-green-n" type="submit">Log In</button>
-            </li>
-            </ul>
-        </form>
-        <form method="post" action="/login">
-          <ul class="side-nav" id="mobile-demo">
-            <li>
-              <div class="input-field">
-                <input id="login-input" placeholder="Email" name="email" id="email" type="email" class="validate">
-              </div>
-            </li>
-            <li>
-              <div class="input-field">
-                <input id="login-input" placeholder="Password" name="password" id="password" type="password" class="validate">
-              </div>
-            </li>
-            <li>
-              <button class="btn waves-effect waves-light l-green-n" type="submit">Log In</button>
-            </li>
-            </ul>
-        </form>
+        <ul class="right hide-on-med-and-down">
+          <%= erb :'_login_form' %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <%= erb :'_login_form' %>
+        </ul>
     <% end %>  
     </div>
   </nav>

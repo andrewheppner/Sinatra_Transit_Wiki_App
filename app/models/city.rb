@@ -1,4 +1,3 @@
-require 'nokogiri'
 
 class City < ActiveRecord::Base
 
@@ -11,11 +10,11 @@ class City < ActiveRecord::Base
   after_create :scrape_header_pic
 
   def scrape_header_pic
-    uri = URI("http://www.bing.com/images/search?q=#{name.}&view=detail&first=1")
-    response = Net::HTTP.get_response(uri)
-    content = Nokogiri::HTML(response.body)
-    string = content.search('.dg_u > a:first-child')[0]['m']
-    header_url = string.gsub(/.*imgurl:\"(.*)\",ow.*/, '\1')
+    list   = flickr.photos.search(text: name+" transit",sort: "relevance", content_type: '1', page: '1', per_page: '2')
+    id     = list[1].id
+    secret = list[1].secret
+    info = flickr.photos.getInfo :photo_id => id, :secret => secret
+    update_attributes(header: FlickRaw.url_b(info))
   end
 
 end

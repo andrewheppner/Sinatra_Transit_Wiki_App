@@ -105,7 +105,7 @@ get '/users/show' do
   erb :'users/show'
 end
 
-post '/users/show' do 
+put '/users/show' do 
   current_user.pic_url = params[:pic_url]
   if current_user.save
     redirect '/users/show' 
@@ -146,7 +146,7 @@ post '/cities' do
 end
 
 get '/cities/:id' do 
-  @city = City.find(params[:id])
+  @city = City.includes(:pics, :transit_modes).find(params[:id])
   session[:new_city] = nil
   erb :'cities/show'
 end
@@ -170,12 +170,6 @@ post '/cities/:city_id/transit_modes' do
   end
 
 end
-
-# get '/cities/:city_id/transit_modes/' do
-#   redirect "/cities/#{params[:city_id]}" unless current_user
-#   @city = City.find(params[:city_id]) 
-#   erb :'transit_modes/index'
-# end
 
 get '/cities/:city_id/transit_modes/:transit_mode_id/edit' do
   @city = City.find(params[:city_id])
@@ -218,7 +212,6 @@ post '/cities/:city_id/pics' do
     title: params[:title]
     )
   if @pic.save
-    #TODO: redirect to city page
     redirect "/cities/#{params[:city_id]}"
   else
     erb :'/pics/new'
